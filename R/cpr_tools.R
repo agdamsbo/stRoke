@@ -35,7 +35,7 @@ cpr_check<-function(cpr){
     p9<-as.integer(substr(x,10,10))
     p10<-as.integer(substr(x,11,11))
     
-    v[i] <- ifelse((p1*4+p2*3+p3*2+p4*7+p5*6+p6*5+p7*4+p8*3+p9*2+p10) %% 11 == 0,TRUE,FALSE)
+    v[i] <- if((p1*4+p2*3+p3*2+p4*7+p5*6+p6*5+p7*4+p8*3+p9*2+p10) %% 11 == 0) TRUE else FALSE
     
   }
   
@@ -108,4 +108,21 @@ cpr_dob<-function(cpr){
   
   as.Date(dobs, origin = "1970-01-01")
   
+}
+
+#' Determine female sex from CPR
+#'
+#' Just checking if last number of a string is equal or not.
+#' @param cpr cpr-numbers as ddmmyy[-.]xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
+#' @keywords cpr
+#' 
+#' @return Logical vector
+#' @export
+#' @examples
+#' cpr_female("231045-0637")
+cpr_female<-function(cpr){
+  ##Input as vector of DK cpr numbers, format "ddmmyy-xxxx", returns sex according to cpr
+  x <- nchar(as.character(cpr)) # Formats as character to avoid confusions
+  
+  as.logical(as.integer(substr(cpr, start = x, stop = x)) %% 2)
 }

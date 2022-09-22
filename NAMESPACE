@@ -3,3 +3,5 @@
 export(age_calc)
 export(cpr_check)
 export(cpr_dob)
+export(cpr_female)
+export(quantile_cut)

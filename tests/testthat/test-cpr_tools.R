@@ -15,3 +15,12 @@ test_that("cpr_dob() works for vectors, giving logicals", {
 })
 
 ################################################################################
+
+test_that("cpr_female() works for vectors, giving logicals", {
+  result <- cpr_female(c("2310450637", "010115-4000", "0101896000","010189-3000","300450-1030","010150-4021"))
+  expect_type(result, "logical")
+  expect_length(result, 6)
+  expect_equal(result[2], FALSE)
+})
+
+################################################################################
