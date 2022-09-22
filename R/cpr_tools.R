@@ -4,7 +4,7 @@
 #' @param cpr cpr-numbers as ddmmyy[-.]xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
 #' @keywords cpr
 #'
-#' @return Logical vector
+#' @return Logical vector of cpr validity
 #' @export
 #'
 #' @examples
@@ -13,33 +13,26 @@
 #' all(cpr_check(fsd))
 cpr_check<-function(cpr){
   # Check validity of CPR number, format ddmmyy-xxxx
-  # Build upon data from this document: https://cpr.dk/media/167692/personnummeret%20i%20cpr.pdf
+  # Build upon data from this document: https://cpr.dk/media/12066/personnummeret-i-cpr.pdf
+  ## OBS according to new description, not all valid CPR numbers apply to this modulus 11 rule.
+  message(
+    "OBS: according to new description, not all valid CPR numbers apply to this modulus 11 rule. 
+    Please refer to: https://cpr.dk/media/12066/personnummeret-i-cpr.pdf")
   
-  v <- c()
+  str_length <- nchar(cpr) 
+  # Calculating length of each element in vector
   
-  for (i in seq_along(cpr)){
-    x <- cpr[i]
-    
-    if (!substr(x,7,7)%in%c("-",".")){ # Added check to take p8 if ddmmyy[-.]xxxx,
-      x<-paste(substr(x,1,6),substr(x,7,10),collapse="-")
-    }
-    
-    p1<-as.integer(substr(x,1,1))
-    p2<-as.integer(substr(x,2,2))
-    p3<-as.integer(substr(x,3,3))
-    p4<-as.integer(substr(x,4,4))
-    p5<-as.integer(substr(x,5,5))
-    p6<-as.integer(substr(x,6,6))
-    p7<-as.integer(substr(x,8,8))
-    p8<-as.integer(substr(x,9,9))
-    p9<-as.integer(substr(x,10,10))
-    p10<-as.integer(substr(x,11,11))
-    
-    v[i] <- if((p1*4+p2*3+p3*2+p4*7+p5*6+p6*5+p7*4+p8*3+p9*2+p10) %% 11 == 0) TRUE else FALSE
-    
-  }
+  cpr_short <- paste0(substr(cpr,1,6),substr(cpr,str_length-3,str_length)) 
+  # Subsetting strings to first 6 and last 4 characters to short format cpr.
   
-  return(v)
+  cpr_matrix <- matrix(as.numeric(unlist(strsplit(cpr_short,""))),nrow=10)
+  # Splitting all strings by each character to list, unlisting and creating matrix. Default is by column.
+  
+  test_vector <- c(4,3,2,7,6,5,4,3,2,1)
+  # Multiplication vector from https://cpr.dk/media/12066/personnummeret-i-cpr.pdf
+  
+  colSums(cpr_matrix*test_vector) %% 11 == 0
+  # Testing if modulus 11 == 0 of sums of matrix * multiplication vector.
 }
 
 #' Extracting date of birth from CPR
@@ -57,28 +50,36 @@ cpr_check<-function(cpr){
 #' cpr_dob(fsd)
 cpr_dob<-function(cpr){
   ## Input as cpr-numbers in format ddmmyy-xxxx
-  ## Build upon data from this document: https://cpr.dk/media/167692/personnummeret%20i%20cpr.pdf
+  ## Build upon data from this document: https://cpr.dk/media/12066/personnummeret-i-cpr.pdf
   
   dobs<-c()
   
-  a00<-as.numeric(c(0:99))
-  a36<-as.numeric(c(0:36))
-  a57<-as.numeric(c(0:57))
-  b00<-as.numeric(c(0,1,2,3))
-  b36<-as.numeric(c(4,9))
-  b57<-as.numeric(c(5,6,7,8))
+  a00<-c(0:99)
+  a36<-c(0:36)
+  a57<-c(0:57)
+  
+  b00<-c(0:3)
+  b36<-c(4,9)
+  b57<-c(5:8)
+  
+  str_length <- nchar(cpr) 
+  # Calculating length of each element in vector
+  
+  cpr_short <- paste0(substr(cpr,1,6),substr(cpr,str_length-3,str_length)) 
+  # Subsetting strings to first 6 and last 4 characters to short format cpr.
+  
+  year <- as.numeric(substr(cpr_short,5,6))
+  
+  ddmmyy <- as.Date(substr(cpr_short,1,6),format="%d%m%y")
   
   for (i in seq_along(cpr)){
-    x <- cpr[i]
     
-    p56<-as.numeric(substr(x,5,6))
+    p56 <- year[i]
     
-    if (substr(x,7,7)%in%c("-",".")){
-      p8<-as.numeric(substr(x,8,8))           # Added check to take p8 if ddmmyy[-.]xxxx,
-    } else {p8<-as.numeric(substr(x,7,7))}    # or p7 if ddmmyyxxxx
+    p8 <- substr(cpr_short[i],7,7) 
+    # p8 is position 8 from the traditional cpr ddmmyy-xxxx, pos 7 in short version.
     
-    birth<-as.Date(substr(x,1,6),format="%d%m%y")
-    
+    birth <- ddmmyy[i]
     
     if (((p56%in%a00)&&(p8%in%b00)))
     {
@@ -100,7 +101,7 @@ cpr_dob<-function(cpr){
     {
       dob<-as.Date(format(birth, format="18%y%m%d"), format="%Y%m%d")
     }
-    else {print("Input contains data in wrong format") # test if position 5,6 or 8 contains letters as is the case for temporary cpr-numbers
+    else {print("Input contains data in wrong format")
     }
     dobs[i]<-dob
     

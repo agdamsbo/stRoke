@@ -10,7 +10,7 @@ cpr_check(cpr)
 \item{cpr}{cpr-numbers as ddmmyy\link{-.}xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.}
 }
 \value{
-Logical vector
+Logical vector of cpr validity
 }
 \description{
 Checking validity of cpr number. Vectorised.
