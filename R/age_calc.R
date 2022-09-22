@@ -90,5 +90,5 @@ age_calc<-function (dob, enddate = Sys.Date(), units = "years", precise = TRUE)
   else {
     stop("Unrecognized units. Please choose years, months, or days.")
   }
-  return(result)
+  result
 }

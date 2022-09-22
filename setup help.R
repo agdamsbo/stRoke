@@ -18,8 +18,8 @@ source("ver_upd.R")
 updatePackageVersion()
 
 # Commit and push
-commit_message<-"Version naming updated, script added"
+commit_message<-"Updated description"
 
 git2r::commit(all=TRUE, message=paste(commit_message,lubridate::now()))
 
-system("/usr/bin/git push origin HEAD:refs/heads/master")
+system("/usr/bin/git push origin HEAD:refs/heads/main")
