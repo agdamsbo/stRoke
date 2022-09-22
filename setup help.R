@@ -7,3 +7,5 @@ usethis::use_roxygen_md()
 usethis::use_package()
 
 spelling::spell_check_setup()
+
+pkgdown:::build_site()
