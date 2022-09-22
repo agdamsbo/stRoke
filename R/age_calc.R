@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' # Kim Larsen (cpr is known from album)
-#'   dob<-daDoctoR::dob_extract_cpr("231045-0637")
+#'   dob<-as.Date("1945-10-23")
 #'   date<-as.Date("2018-09-30")
 #'   trunc(age_calc(dob,date))
 
