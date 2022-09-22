@@ -6,7 +6,7 @@
 \alias{stRoke-package}
 \title{stRoke: Providing tools for work in clinical stroke research.}
 \description{
-For a start this package migrates functions from the agdamsbo/daDoctoR-package.
+R functions for convenient data management an danalysis in health research. For a start this package migrates functions from the agdamsbo/daDoctoR-package.
 }
 \author{
 \strong{Maintainer}: Andreas Gammelgaard Damsbo \email{agdamsbo@clin.au.dk} (\href{https://orcid.org/0000-0002-7559-1154}{ORCID})
