@@ -12,8 +12,12 @@
 #' @param input can be either "model", which is a olr model (polr()), or "df", which is a dataframe whith three columns for OR, lower CI and upper CI.
 #'
 #' @return gg object
-#' @keywords forestplot
+#' @keywords forest plot
+#' 
 #' @export
+#' 
+#' @examples
+#' 
 
 plot_ord_odds<-function(x, title = NULL,dec=3,lbls=NULL,hori="OR (95 % CI)",vert="Variables",short=FALSE,input=c("model","df")){
   

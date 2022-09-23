@@ -50,7 +50,7 @@
 <span>  group.names <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  ordered.f <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  inc.outs <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  detail.lst <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  detail.list <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -83,6 +83,10 @@
 <dt>inc.outs</dt>
 <dd><p>Flag to include min(x) and max(x) as boarders in case of y!=NULL.</p></dd>
 
+
+<dt>detail.list</dt>
+<dd></dd>
+
 </dl></div>
 
     <div class="section level2">
@@ -90,10 +94,9 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">aa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">1000</span>,<span class="fl">2000</span>,replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">450</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">6</span><span class="op">:</span><span class="fl">750</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu">quantile_cut</span><span class="op">(</span><span class="va">aa</span>,groups<span class="op">=</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co">## Cuts quartiles</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Length Class  Mode   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 2000   factor numeric</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,]    5   -none- numeric</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu">quantile_cut</span><span class="op">(</span><span class="va">aa</span>,groups<span class="op">=</span><span class="fl">4</span>,detail.list<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="co">## Cuts quartiles</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1,249] (249,510] (510,754] (754,998] </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       502       498       500       500 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

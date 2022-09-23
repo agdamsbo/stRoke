@@ -12,7 +12,7 @@ quantile_cut(
   group.names = NULL,
   ordered.f = FALSE,
   inc.outs = FALSE,
-  detail.lst = TRUE
+  detail.list = TRUE
 )
 }
 \arguments{
@@ -29,6 +29,8 @@ quantile_cut(
 \item{ordered.f}{Set resulting vector as ordered. Default is FALSE.}
 
 \item{inc.outs}{Flag to include min(x) and max(x) as boarders in case of y!=NULL.}
+
+\item{detail.list}{}
 }
 \description{
 Using base/stats functions cut() and quantile().
@@ -37,6 +39,6 @@ Using base/stats functions cut() and quantile().
 aa <- as.numeric(sample(1:1000,2000,replace = TRUE))
 x <- 1:450
 y <- 6:750
-summary(quantile_cut(aa,groups=4)) ## Cuts quartiles
+summary(quantile_cut(aa,groups=4,detail.list=FALSE)) ## Cuts quartiles
 }
 \keyword{quantile}

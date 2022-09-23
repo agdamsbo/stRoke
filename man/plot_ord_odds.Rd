@@ -38,4 +38,5 @@ gg object
 \description{
 Heavily inspired by https://www.r-bloggers.com/plotting-odds-ratios-aka-a-forrestplot-with-ggplot2/
 }
-\keyword{forestplot}
+\keyword{forest}
+\keyword{plot}
