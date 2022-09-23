@@ -1,5 +1,5 @@
 Package: stRoke
-Title: Providing tools for work in clinical stroke research.
+Title: Tools for work in clinical stroke research
 Version: 0.22.9.2
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),

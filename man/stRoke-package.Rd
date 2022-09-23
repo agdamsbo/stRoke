@@ -4,7 +4,7 @@
 \name{stRoke-package}
 \alias{stRoke}
 \alias{stRoke-package}
-\title{stRoke: Providing tools for work in clinical stroke research.}
+\title{stRoke: Tools for work in clinical stroke research}
 \description{
 R functions for convenient data management an danalysis in health research. The package is mainly collected for personal use. For a start this package migrates functions from the agdamsbo/daDoctoR-package.
 }
