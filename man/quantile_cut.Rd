@@ -12,7 +12,7 @@ quantile_cut(
   group.names = NULL,
   ordered.f = FALSE,
   inc.outs = FALSE,
-  detail.list = TRUE
+  detail.list = FALSE
 )
 }
 \arguments{
@@ -30,7 +30,10 @@ quantile_cut(
 
 \item{inc.outs}{Flag to include min(x) and max(x) as boarders in case of y!=NULL.}
 
-\item{detail.list}{}
+\item{detail.list}{flag to include details or not}
+}
+\value{
+vector or list with vector and details (length 2)
 }
 \description{
 Using base/stats functions cut() and quantile().

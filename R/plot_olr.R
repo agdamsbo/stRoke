@@ -1,3 +1,5 @@
+utils::globalVariables(c("or","ord","lo","up"))
+
 #' Forrest plot from ordinal logistic regression.
 #'
 #' Heavily inspired by https://www.r-bloggers.com/plotting-odds-ratios-aka-a-forrestplot-with-ggplot2/
@@ -14,29 +16,30 @@
 #' @return gg object
 #' @keywords forest plot
 #' 
+#' @import ggplot2 stats MASS
+#' 
 #' @export
 #' 
 #' @examples
-#' 
+#' iris$ord<-factor(sample(1:3,size=nrow(iris),replace=TRUE),ordered=TRUE)
+#' lm <- MASS::polr(ord~., data=iris, Hess=TRUE, method="logistic")
+#' plot_olr(lm, input="model")
 
-plot_ord_odds<-function(x, title = NULL,dec=3,lbls=NULL,hori="OR (95 % CI)",vert="Variables",short=FALSE,input=c("model","df")){
-  
-  require(ggplot2)
+plot_olr<-function(x, title = NULL, dec=3, lbls=NULL, hori="OR (95 % CI)", vert="Variables", short=FALSE, input=c("model","df")){
   
   if (input=="model"){
-    odds<-data.frame(cbind(exp(coef(x)), exp(confint(x))))
+    odds <- data.frame(cbind(exp(coef(x)), exp(confint(x))))
   }
   
   if (input=="df"){
-    odds<-x
+    odds <- x
   }
   names(odds)<-c("or", "lo", "up")
-  rodds<-round(odds,digits = dec)
+  rodds<-round(odds, digits = dec)
   
   if (!is.null(lbls)){
     odds$vars<-paste0(lbls," \n",paste0(rodds$or," [",rodds$lo,":",rodds$up,"]"))
-  }
-  else {
+  } else {
     odds$vars<-paste0(row.names(odds)," \n",paste0(rodds$or," [",rodds$lo,":",rodds$up,"]"))
   }
   
@@ -45,16 +48,16 @@ plot_ord_odds<-function(x, title = NULL,dec=3,lbls=NULL,hori="OR (95 % CI)",vert
   if (short==TRUE){
     ticks<-ticks[seq(1, length(ticks), 2)]
   }
-  else {ticks<-ticks}
   
   odds$ord<-c(nrow(odds):1)
   
-  ggplot(odds, aes(y= or, x = reorder(vars,ord))) +
-    geom_point() +
-    geom_errorbar(aes(ymin=lo, ymax=up), width=.2) +
-    scale_y_log10(breaks=ticks, labels = ticks) +
-    geom_hline(yintercept = 1, linetype=2) +
-    coord_flip() +
-    labs(title = title, x = vert, y = hori) +
-    theme_bw()
+  odds|>
+    ggplot2::ggplot(mapping = ggplot2::aes(y = or, x = reorder(vars,ord))) +
+    ggplot2::geom_point() +
+    ggplot2::geom_errorbar(mapping = ggplot2::aes(ymin=lo, ymax=up), width=.2) +
+    ggplot2::scale_y_log10(breaks=ticks, labels = ticks) +
+    ggplot2::geom_hline(yintercept = 1, linetype=2) +
+    ggplot2::coord_flip() +
+    ggplot2::labs(title = title, x = vert, y = hori) +
+    ggplot2::theme_bw(14)
 }

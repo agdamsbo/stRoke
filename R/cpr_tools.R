@@ -1,7 +1,7 @@
 #' CPR check
 #'
 #' Checking validity of cpr number. Vectorised.
-#' @param cpr cpr-numbers as ddmmyy[-.]xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
+#' @param cpr cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
 #' @keywords cpr
 #'
 #' @return Logical vector of cpr validity
@@ -38,7 +38,7 @@ cpr_check<-function(cpr){
 #' Extracting date of birth from CPR
 #'
 #' For easy calculation.
-#' @param cpr cpr-numbers as ddmmyy[-.]xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
+#' @param cpr cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
 #' @keywords cpr
 #'
 #' @return vector of Date elements. Format yyyy-mm-dd
@@ -114,7 +114,7 @@ cpr_dob<-function(cpr){
 #' Determine female sex from CPR
 #'
 #' Just checking if last number of a string is equal or not.
-#' @param cpr cpr-numbers as ddmmyy[-.]xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
+#' @param cpr cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
 #' @keywords cpr
 #' 
 #' @return Logical vector
