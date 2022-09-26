@@ -7,8 +7,9 @@
 #' @return Logical vector of cpr validity
 #' @export
 #'
-#' @examples
-#' fsd<-c("2310450637", "010115-4000", "0101896000","010189-3000","300450-1030","010150-4021")
+#' @examples 
+#' fsd<-c("2310450637", "010190-2000", "010115-4000","300450-1030","010150-4021")
+#' cpr_check("2310450637")
 #' cpr_check(fsd)
 #' all(cpr_check(fsd))
 cpr_check<-function(cpr){
@@ -37,7 +38,7 @@ cpr_check<-function(cpr){
 
 #' Extracting date of birth from CPR
 #'
-#' For easy calculation.
+#' For easy calculation. Does not handle cprs with letters (interim cpr)
 #' @param cpr cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
 #' @keywords cpr
 #'
@@ -46,7 +47,7 @@ cpr_check<-function(cpr){
 #'
 #' @examples
 #' cpr_dob("231045-0637")
-#' fsd<-c("010190-2000", "010115-4000", "0101896000","010189-3000","300450-1030","010150-4021")
+#' fsd<-c("2310450637", "010190-2000", "010115-4000","300450-1030","010150-4021")
 #' cpr_dob(fsd)
 cpr_dob<-function(cpr){
   ## Input as cpr-numbers in format ddmmyy-xxxx
@@ -114,16 +115,18 @@ cpr_dob<-function(cpr){
 #' Determine female sex from CPR
 #'
 #' Just checking if last number of a string is equal or not.
-#' @param cpr cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
+#' @param cpr Vector. cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
 #' @keywords cpr
 #' 
 #' @return Logical vector
 #' @export
 #' @examples
-#' cpr_female("231045-0637")
+#' data(cprs)
+#' cpr_female(cprs[,1])
 cpr_female<-function(cpr){
-  ##Input as vector of DK cpr numbers, format "ddmmyy-xxxx", returns sex according to cpr
+  if (!is.vector(cpr)) stop("Input has to be vector") 
+
   x <- nchar(as.character(cpr)) # Formats as character to avoid confusions
   
-  as.logical(as.integer(substr(cpr, start = x, stop = x)) %% 2)
+  as.integer(substr(cpr, start = x, stop = x)) %% 2 == 0
 }

@@ -10,4 +10,4 @@ Please use the package or grab bits of the functions. Mind the licensing.
 
 # GitHub
 
-This package is [shared on GitHub](https://github.com/agdamsbo/stRoke), and you are very wellcome to contribute by opening an issue or a pull request.
+This package is [shared on GitHub](https://github.com/agdamsbo/stRoke), and you are very welcome to contribute by opening an issue or a pull request.

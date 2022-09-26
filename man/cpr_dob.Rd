@@ -13,11 +13,11 @@ cpr_dob(cpr)
 vector of Date elements. Format yyyy-mm-dd
 }
 \description{
-For easy calculation.
+For easy calculation. Does not handle cprs with letters (interim cpr)
 }
 \examples{
 cpr_dob("231045-0637")
-fsd<-c("010190-2000", "010115-4000", "0101896000","010189-3000","300450-1030","010150-4021")
+fsd<-c("2310450637", "010190-2000", "010115-4000","300450-1030","010150-4021")
 cpr_dob(fsd)
 }
 \keyword{cpr}

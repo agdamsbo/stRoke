@@ -7,7 +7,7 @@
 cpr_female(cpr)
 }
 \arguments{
-\item{cpr}{cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.}
+\item{cpr}{Vector. cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.}
 }
 \value{
 Logical vector
@@ -16,6 +16,7 @@ Logical vector
 Just checking if last number of a string is equal or not.
 }
 \examples{
-cpr_female("231045-0637")
+data(cprs)
+cpr_female(cprs[,1])
 }
 \keyword{cpr}

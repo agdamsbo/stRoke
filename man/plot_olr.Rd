@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_olr.R
 \name{plot_olr}
 \alias{plot_olr}
-\title{Forrest plot from ordinal logistic regression.}
+\title{Forest plot from ordinal logistic regression.}
 \usage{
 plot_olr(
   x,
@@ -22,7 +22,7 @@ plot_olr(
 
 \item{dec}{decimals for labels}
 
-\item{lbls}{labels for variable names. Carefull, as the right order is not checked automatically!}
+\item{lbls}{labels for variable names. Careful, as the right order is not checked automatically!}
 
 \item{hori}{labels the horizontal axis (this i the y axis as the plot is rotated)}
 
@@ -30,7 +30,7 @@ plot_olr(
 
 \item{short}{flag to half number of ticks on horizontal axis.}
 
-\item{input}{can be either "model", which is a olr model (polr()), or "df", which is a dataframe whith three columns for OR, lower CI and upper CI.}
+\item{input}{can be either "model", which is a olr model (polr()), or "df", which is a data frame with three columns for OR, lower CI and upper CI.}
 }
 \value{
 gg object

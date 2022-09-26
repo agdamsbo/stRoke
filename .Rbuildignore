@@ -10,3 +10,5 @@
 ^logo\.R$
 ^ver_upd\.R$
 ^data/cprs\.R$
+^data/cprs\.csv$
+^data-raw$

@@ -4,13 +4,14 @@ Version: 0.22.9.2
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7559-1154"))
-Description: R functions for convenient data management an danalysis in health research.
+Description: R functions for convenient data management and analysis in health research.
     The package is mainly collected for personal use.
     For a start this package migrates functions from the agdamsbo/daDoctoR-package.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
+LazyData: true
 Suggests:
     spelling,
     testthat (>= 3.0.0)

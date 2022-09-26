@@ -1,17 +1,17 @@
 utils::globalVariables(c("or","ord","lo","up"))
 
-#' Forrest plot from ordinal logistic regression.
+#' Forest plot from ordinal logistic regression.
 #'
 #' Heavily inspired by https://www.r-bloggers.com/plotting-odds-ratios-aka-a-forrestplot-with-ggplot2/
 #'
 #' @param x input data.
 #' @param title plot title
 #' @param dec decimals for labels
-#' @param lbls labels for variable names. Carefull, as the right order is not checked automatically!
+#' @param lbls labels for variable names. Careful, as the right order is not checked automatically!
 #' @param hori labels the horizontal axis (this i the y axis as the plot is rotated)
 #' @param vert labels the horizontal axis (this i the x axis as the plot is rotated)
 #' @param short flag to half number of ticks on horizontal axis.
-#' @param input can be either "model", which is a olr model (polr()), or "df", which is a dataframe whith three columns for OR, lower CI and upper CI.
+#' @param input can be either "model", which is a olr model (polr()), or "df", which is a data frame with three columns for OR, lower CI and upper CI.
 #'
 #' @return gg object
 #' @keywords forest plot

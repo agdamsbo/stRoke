@@ -16,7 +16,8 @@ Logical vector of cpr validity
 Checking validity of cpr number. Vectorised.
 }
 \examples{
-fsd<-c("2310450637", "010115-4000", "0101896000","010189-3000","300450-1030","010150-4021")
+fsd<-c("2310450637", "010190-2000", "010115-4000","300450-1030","010150-4021")
+cpr_check("2310450637")
 cpr_check(fsd)
 all(cpr_check(fsd))
 }

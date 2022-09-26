@@ -60,11 +60,15 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">fsd</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2310450637"</span>, <span class="st">"010115-4000"</span>, <span class="st">"0101896000"</span>,<span class="st">"010189-3000"</span>,<span class="st">"300450-1030"</span>,<span class="st">"010150-4021"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">fsd</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2310450637"</span>, <span class="st">"010190-2000"</span>, <span class="st">"010115-4000"</span>,<span class="st">"300450-1030"</span>,<span class="st">"010150-4021"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">cpr_check</span><span class="op">(</span><span class="st">"2310450637"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> OBS: according to new description, not all valid CPR numbers apply to this modulus 11 rule. </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     Please refer to: https://cpr.dk/media/12066/personnummeret-i-cpr.pdf</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span><span class="fu">cpr_check</span><span class="op">(</span><span class="va">fsd</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> OBS: according to new description, not all valid CPR numbers apply to this modulus 11 rule. </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     Please refer to: https://cpr.dk/media/12066/personnummeret-i-cpr.pdf</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE FALSE FALSE FALSE FALSE FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE FALSE FALSE FALSE FALSE</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fu">cpr_check</span><span class="op">(</span><span class="va">fsd</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> OBS: according to new description, not all valid CPR numbers apply to this modulus 11 rule. </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     Please refer to: https://cpr.dk/media/12066/personnummeret-i-cpr.pdf</span>
