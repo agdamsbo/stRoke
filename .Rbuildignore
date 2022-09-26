@@ -9,3 +9,4 @@
 ^setup_help\.R$
 ^logo\.R$
 ^ver_upd\.R$
+^data/cprs\.R$
