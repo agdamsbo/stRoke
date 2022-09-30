@@ -4,7 +4,7 @@ utils::globalVariables(c("df","group","score","strata"))
 #' 
 #' Includes table 1, grotta bars and ordinal logistic regression plot. 
 #' Please just use this function for illustration purposes.
-#' To dos: 
+#' To dos: modify grottaBar and include as own function.
 #'
 #' @param df Data set as data frame
 #' @param group Variable to group by
@@ -22,8 +22,8 @@ utils::globalVariables(c("df","group","score","strata"))
 #' @importFrom rankinPlot grottaBar
 #'
 #' @examples
-#' iris$ord<-factor(sample(1:3,size=nrow(iris),replace=TRUE),ordered=TRUE) 
-#' generic_stroke(df=iris, group = "Species", score = "ord", variables = colnames(iris)[1:3])
+#' data(talos)
+#' generic_stroke(talos, "rtreat", "mrs_6", variables = c("hypertension","diabetes","civil"))
 generic_stroke <- function(df, group, score, strata = NULL, variables = NULL)
   {
   t1<-gtsummary::tbl_summary(data = df[,c(group,variables)], 

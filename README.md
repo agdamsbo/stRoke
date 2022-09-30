@@ -8,6 +8,9 @@
 This package contains tools used for my (Andreas) research work and for the ENIGMA project.    
 Please use the package or grab bits of the functions. Mind the licensing.
 
+# A few notes
+The function `generic_stroke()`can be used with `data(talos)` or a custom data set to illustrate the classic analysis of mRS outcome from stroke trials.
+
 # GitHub
 
 This package is [shared on GitHub](https://github.com/agdamsbo/stRoke), and you are very welcome to contribute by opening an issue or a pull request.
