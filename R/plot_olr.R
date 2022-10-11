@@ -16,7 +16,9 @@ utils::globalVariables(c("or","ord","lo","up"))
 #' @return gg object
 #' @keywords forest plot
 #' 
-#' @import ggplot2 stats MASS
+#' @import ggplot2 stats
+#' 
+#' @importFrom MASS polr
 #' 
 #' @export
 #' 
