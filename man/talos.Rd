@@ -5,7 +5,7 @@
 \alias{talos}
 \title{Data frame with sample of TALOS data}
 \format{
-A data frame with 200 rows and 1 variable:
+A data frame with 200 rows and 6 variables:
 \describe{
 \item{rtreat}{Randomisation}
 \item{mrs_1}{Modified Rankin scale score at follow-up}

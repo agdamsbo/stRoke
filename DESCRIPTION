@@ -1,6 +1,6 @@
 Package: stRoke
 Title: Tools for work in clinical stroke research
-Version: 0.22.10.1
+Version: 0.22.11.1
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7559-1154"))
@@ -18,8 +18,12 @@ Suggests:
 Language: en-US
 Config/testthat/edition: 3
 Imports: 
+    dplyr,
     ggplot2,
     gtsummary,
     MASS,
     rankinPlot,
-    stats
+    stats,
+    tidyr
+Depends: 
+    R (>= 2.10)

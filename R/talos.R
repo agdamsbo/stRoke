@@ -2,7 +2,7 @@
 #'
 #' Contains of non-identifiable data from the [TALOS trial](https://doi.org/10.1161/STROKEAHA.117.020067/)
 #'
-#' @format A data frame with 200 rows and 1 variable:
+#' @format A data frame with 200 rows and 6 variables:
 #' \describe{
 #'   \item{rtreat}{Randomisation}
 #'   \item{mrs_1}{Modified Rankin scale score at follow-up}
