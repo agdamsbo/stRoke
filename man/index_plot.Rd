@@ -33,6 +33,5 @@ ggplot element
 Plot index scores from five dimensional cognitive testing. Includes option to facet.
 }
 \examples{
-data(score)
-index_plot(score |> dplyr::filter(event=="A"))
+index_plot(score[score$event=="A",])
 }

@@ -12,23 +12,26 @@ utils::globalVariables(c("name","value","facet"))
 #'
 #' @return ggplot element
 #' 
-#' @import ggplot2 tidyr
+#' @import ggplot2 
 #' @importFrom dplyr mutate
 #' @importFrom dplyr select
-#' @importFrom dplyr filter
+#' @importFrom tidyr pivot_longer
+#' @importFrom tidyr all_of
+#' @importFrom tidyr ends_with
 #' 
 #' @export
 #'
 #' @examples
-#' data(score)
-#' index_plot(score |> dplyr::filter(event=="A"))
+#' index_plot(score[score$event=="A",])
 index_plot <- function(ds,id="id",sub_plot="_is",scores=c("_is","_lo","_up","_per"),dom_names=c("immediate","visuospatial","verbal","attention","delayed","total"),facet.by=NULL){
 
+  if (length(facet.by)>1){stop("facet.by can be NULL or of length 1 only.")}
+  
   df_plot<-ds|>
     dplyr::select(c(id,
              facet.by,
-             ends_with(scores)))|>
-    tidyr::pivot_longer(cols=-c(id,facet.by))|>
+             tidyr::ends_with(scores)))|>
+    tidyr::pivot_longer(cols=-c(id,tidyr::all_of(facet.by)))|>
     subset(grepl(sub_plot,name))|>
     dplyr::mutate(value=as.numeric(value),
            name=factor(name,labels = dom_names))
