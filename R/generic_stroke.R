@@ -22,7 +22,7 @@ utils::globalVariables(c("df","group","score","strata"))
 #' @importFrom rankinPlot grottaBar
 #'
 #' @examples
-#' generic_stroke(stroke::talos, "rtreat", "mrs_6", variables = c("hypertension","diabetes","civil"))
+#' generic_stroke(stRoke::talos, "rtreat", "mrs_6", variables = c("hypertension","diabetes","civil"))
 generic_stroke <- function(df, group, score, strata = NULL, variables = NULL)
   {
   t1<-gtsummary::tbl_summary(data = df[,c(group,variables)], 

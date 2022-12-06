@@ -121,7 +121,7 @@ cpr_dob<-function(cpr){
 #' @return Logical vector
 #' @export
 #' @examples
-#' cpr_female(stroke::cprs[,1])
+#' cpr_female(stRoke::cprs[,1])
 cpr_female<-function(cpr){
   if (!is.vector(cpr)) stop("Input has to be vector") 
 

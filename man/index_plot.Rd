@@ -33,5 +33,5 @@ ggplot element
 Plot index scores from five dimensional cognitive testing. Includes option to facet.
 }
 \examples{
-index_plot(stroke::score[score$event=="A",])
+index_plot(stRoke::score[score$event=="A",])
 }

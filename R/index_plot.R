@@ -22,7 +22,7 @@ utils::globalVariables(c("name","value","facet"))
 #' @export
 #'
 #' @examples
-#' index_plot(stroke::score[score$event=="A",])
+#' index_plot(stRoke::score[score$event=="A",])
 index_plot <- function(ds,id="id",sub_plot="_is",scores=c("_is","_lo","_up","_per"),dom_names=c("immediate","visuospatial","verbal","attention","delayed","total"),facet.by=NULL){
 
   if (length(facet.by)>1){stop("facet.by can be NULL or of length 1 only.")}

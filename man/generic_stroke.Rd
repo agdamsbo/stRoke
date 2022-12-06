@@ -26,5 +26,5 @@ Please just use this function for illustration purposes.
 To dos: modify grottaBar and include as own function.
 }
 \examples{
-generic_stroke(stroke::talos, "rtreat", "mrs_6", variables = c("hypertension","diabetes","civil"))
+generic_stroke(stRoke::talos, "rtreat", "mrs_6", variables = c("hypertension","diabetes","civil"))
 }

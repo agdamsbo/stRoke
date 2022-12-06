@@ -16,6 +16,6 @@ Logical vector
 Just checking if last number of a string is equal or not.
 }
 \examples{
-cpr_female(stroke::cprs[,1])
+cpr_female(stRoke::cprs[,1])
 }
 \keyword{cpr}
