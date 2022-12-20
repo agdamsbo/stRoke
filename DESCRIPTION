@@ -1,6 +1,6 @@
 Package: stRoke
 Title: Tools for work in clinical stroke research
-Version: 0.22.12.1
+Version: 0.22.12.2
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7559-1154"))
@@ -10,7 +10,7 @@ Description: R functions for convenient data management and analysis in health r
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 LazyData: true
 Suggests:
     spelling,
@@ -23,7 +23,11 @@ Imports:
     gtsummary,
     MASS,
     rankinPlot,
+    REDCapR,
+    REDCapRITS (>= 0.2.2),
     stats,
     tidyr
 Depends: 
     R (>= 2.10)
+Remotes: 
+    SpectrumHealthResearch/REDCapRITS/R
