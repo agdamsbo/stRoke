@@ -37,3 +37,6 @@ list of instruments
 Wrapper function for using REDCapR::redcap_read and REDCapRITS::REDCap_split including some clean-up.
 Handles
 }
+\examples{
+# Examples will be provided later
+}

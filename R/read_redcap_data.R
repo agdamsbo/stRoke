@@ -17,7 +17,7 @@
 #' @importFrom REDCapRITS REDCap_split
 #'
 #' @examples
-#' 
+#' # Examples will be provided later
 read_redcap_data <- function(uri,
                              token,
                              records=NULL,
