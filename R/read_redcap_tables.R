@@ -12,9 +12,6 @@
 #'
 #' @return list of instruments
 #' @export 
-#' 
-#' @importFrom REDCapR redcap_read
-#' @importFrom REDCapRITS REDCap_split
 #'
 #' @examples
 #' # Examples will be provided later
@@ -25,6 +22,15 @@ read_redcap_tables <- function(uri,
                              events=NULL,
                              forms=NULL,
                              generics=c("record_id", "redcap_event_name", "redcap_repeat_instrument", "redcap_repeat_instance")){
+  
+  if (requireNamespace("REDCapRITS", quietly = FALSE)) {
+      cli::cli_abort(
+        c("x" = "The package REDCapRITS is not installed.",
+          "i" = "Please install REDCapRITS by running \"remotes::install_github('agdamsbo/REDCapRITS/R')\".")
+      )
+
+  }
+
   
   # Notes to self: Based on the metadata, this functionality could be introduced without using the REDCapRITS package.. To be tried..
   

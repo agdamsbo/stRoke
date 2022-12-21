@@ -13,21 +13,23 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 LazyData: true
 Suggests:
+    REDCapRITS (>= 0.2.2.1),
+    remotes,
     spelling,
     testthat (>= 3.0.0)
 Language: en-US
 Config/testthat/edition: 3
 Imports: 
+    cli,
     dplyr,
     ggplot2,
     gtsummary,
     MASS,
     rankinPlot,
     REDCapR,
-    REDCapRITS (>= 0.2.2),
     stats,
     tidyr
 Depends: 
     R (>= 2.10)
-Remotes:  
+Remotes: 
     agdamsbo/REDCapRITS/R
