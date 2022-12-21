@@ -22,16 +22,7 @@ read_redcap_tables <- function(uri,
                              events=NULL,
                              forms=NULL,
                              generics=c("record_id", "redcap_event_name", "redcap_repeat_instrument", "redcap_repeat_instance")){
-  
-  if (requireNamespace("REDCapRITS", quietly = FALSE)) {
-      cli::cli_abort(
-        c("x" = "The package REDCapRITS is not installed.",
-          "i" = "Please install REDCapRITS by running \"remotes::install_github('agdamsbo/REDCapRITS')\".")
-      )
 
-  }
-
-  
   # Notes to self: Based on the metadata, this functionality could be introduced without using the REDCapRITS package.. To be tried..
   
   d <- REDCapR::redcap_read (redcap_uri = uri,
@@ -43,7 +34,14 @@ read_redcap_tables <- function(uri,
   
   m <- REDCapR::redcap_metadata_read (redcap_uri = uri,token = token)
   
-  l <- REDCapRITS::REDCap_split(d$data, m$data[m$data$field_name %in% names(d$data),], forms = "all")
+  if (requireNamespace("REDCapRITS", quietly = TRUE)) {
+    l <- REDCapRITS::REDCap_split(d$data, m$data[m$data$field_name %in% names(d$data),], forms = "all")
+  } else {
+    cli::cli_abort(
+      c("x" = "The package REDCapRITS is not installed.",
+        "i" = "Please install REDCapRITS by running \"remotes::install_github('agdamsbo/REDCapRITS')\".")
+    )
+  }
   
   lapply(l, function(i){
     if (ncol(i) > 2){
