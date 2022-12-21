@@ -31,5 +31,5 @@ Imports:
     tidyr
 Depends: 
     R (>= 2.10)
-Remotes: 
-    agdamsbo/REDCapRITS/R
+Remotes:  
+    agdamsbo/REDCapRITS

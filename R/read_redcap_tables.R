@@ -26,7 +26,7 @@ read_redcap_tables <- function(uri,
   if (requireNamespace("REDCapRITS", quietly = FALSE)) {
       cli::cli_abort(
         c("x" = "The package REDCapRITS is not installed.",
-          "i" = "Please install REDCapRITS by running \"remotes::install_github('agdamsbo/REDCapRITS/R')\".")
+          "i" = "Please install REDCapRITS by running \"remotes::install_github('agdamsbo/REDCapRITS')\".")
       )
 
   }
