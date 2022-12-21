@@ -18,7 +18,7 @@
 #'
 #' @examples
 #' # Examples will be provided later
-read_redcap_data <- function(uri,
+read_redcap_tables <- function(uri,
                              token,
                              records=NULL,
                              fields=NULL,
