@@ -4,9 +4,19 @@
 \name{stRoke-package}
 \alias{stRoke}
 \alias{stRoke-package}
-\title{stRoke: Tools for work in clinical stroke research}
+\title{stRoke: Clinical stroke research toolbox}
 \description{
-R functions for convenient data management and analysis in health research. The package is mainly collected for personal use. For a start this package migrates functions from the agdamsbo/daDoctoR-package.
+This is an R-toolbox of custom functions for convenient data management and analysis in clinical health research and teaching. The package is mainly collected for personal use, but any use beyond that is encouraged. This package has migrated functions from the agdamsbo/daDoctoR-package, and new functions has been added.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://agdamsbo.github.io/stRoke/}
+  \item \url{https://github.com/agdamsbo/stRoke}
+  \item \url{https://agdamsbo.github.io/neuRo-group/}
+  \item Report bugs at \url{https://github.com/agdamsbo/stRoke/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Andreas Gammelgaard Damsbo \email{agdamsbo@clin.au.dk} (\href{https://orcid.org/0000-0002-7559-1154}{ORCID})

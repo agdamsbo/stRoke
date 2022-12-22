@@ -1,12 +1,15 @@
 Package: stRoke
-Title: Tools for work in clinical stroke research
-Version: 0.22.12.3
+Title: Clinical stroke research toolbox
+Version: 0.22.12.4
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7559-1154"))
-Description: R functions for convenient data management and analysis in health research.
-    The package is mainly collected for personal use.
-    For a start this package migrates functions from the agdamsbo/daDoctoR-package.
+Description: This is an R-toolbox of custom functions for convenient data management 
+    and analysis in clinical health research and teaching.
+    The package is mainly collected for personal use, but any use beyond that is encouraged.
+    This package has migrated functions from the agdamsbo/daDoctoR-package, and new functions has been added.
+URL: https://agdamsbo.github.io/stRoke/, https://github.com/agdamsbo/stRoke, https://agdamsbo.github.io/neuRo-group/
+BugReports: https://github.com/agdamsbo/stRoke/issues
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
