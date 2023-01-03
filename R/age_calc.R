@@ -1,20 +1,24 @@
-#' Calculating age from date of birth
-#'
-#' For age calculations. Vectorised.
-#' @param dob Date of birth. Data format follows standard POSIX layout. Format is yyyy-mm-dd.
-#' @param enddate Date to calculate age at. Format is yyyy-mm-dd.
-#' @param units Default is "years". Can be changed to "days".
-#' @param precise Default is TRUE. Flag set whether to include calculations of spring years. Only of matter if using units = "days".
-#' @keywords age
-#'
-#' @return Vector of age
+#' Calculate age in years, months, or days
+#' 
+#' @param dob Date of birth
+#' @param enddate End date for age calculation (default is Sys.Date())
+#' @param units Units for age calculation (default is "years"). 
+#'              Can be c("days", "months", "years")
+#' @param precise Option to calculate age precisely (default is TRUE)
+#' @return Age
 #' @export
-#'
+#' 
 #' @examples
+#' age_calc(dob = as.Date("1995-04-25"), enddate = as.Date("2020-04-25"), units = "years")
 #' # Kim Larsen (cpr is known from album)
 #'   dob<-as.Date("1945-10-23")
 #'   date<-as.Date("2018-09-30")
 #'   trunc(age_calc(dob,date))
+#' @references
+#' Becker, J.P. (2020). eeptools: An R Package for Teaching and Learning Ecology and Evolutionary Biology. Journal of Statistical Software, 93(2), 1-27. doi: 10.18637/jss.v093.i02
+#' 
+#' @seealso \code{\link[lubridate]{time_length}}
+#' @keywords date time age
 
 age_calc<-function (dob, enddate = Sys.Date(), units = "years", precise = TRUE)
   ## Build upon the work of Jason P. Becker, as part of the eeptools
