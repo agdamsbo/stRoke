@@ -56,5 +56,5 @@ ver_upd.R
 data/*.R
 
 .Renviron
-
+.Rbuildignore
 

@@ -5,8 +5,9 @@
 
 # stRoke package <img src="man/figures/hexlogo.png" align="right" />
 
-This package contains tools used for my (Andreas) research work and for the ENIGMA project.    
-Please use the package or grab bits of the functions. Mind the licensing.
+This is an R-toolbox of custom functions for convenient data management and analysis in clinical health research and teaching.
+The package is mainly collected for personal use, but any use beyond that is encouraged.
+This package has migrated functions from the agdamsbo/daDoctoR-package, and new functions has been added.
 
 # A few notes
 The function `generic_stroke()`can be used with `data(talos)` or a custom data set to illustrate the classic analysis of mRS outcome from stroke trials.
