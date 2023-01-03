@@ -53,3 +53,5 @@ setup_help.R
 logo.R
 
 data/*.R
+
+.Renviron

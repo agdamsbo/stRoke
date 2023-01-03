@@ -1,6 +1,6 @@
 Package: stRoke
 Title: Clinical stroke research toolbox
-Version: 0.22.12.4
+Version: 0.23.1.1
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7559-1154"))

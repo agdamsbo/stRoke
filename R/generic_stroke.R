@@ -25,6 +25,9 @@ utils::globalVariables(c("df","group","score","strata"))
 #' generic_stroke(stRoke::talos, "rtreat", "mrs_6", variables = c("hypertension","diabetes","civil"))
 generic_stroke <- function(df, group, score, strata = NULL, variables = NULL)
   {
+  # if (!is.factor(df[,group])){
+  #   df[,group] <- factor(df[,group])
+  # }
   t1<-gtsummary::tbl_summary(data = df[,c(group,variables)], 
                              by = group) |> 
     gtsummary::add_overall()
