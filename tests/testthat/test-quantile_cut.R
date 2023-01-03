@@ -13,3 +13,16 @@ test_that("quatile_cut() works for detail.list==FALSE", {
 })
 
 ################################################################################
+
+# Test created using remotes::install_github("JamesHWade/gpttools") unit test addin.
+test_that("quantile_cut works correctly", {
+  x <- runif(100)
+  groups <- 5
+  y <- runif(100)
+  expect_equal(quantile_cut(x, groups, y, na.rm = TRUE),
+               cut(x, quantile(y, probs = seq(0, 1, 1/groups), na.rm = TRUE, names = TRUE, type = 7),
+                   include.lowest = TRUE, labels = NULL, ordered_result = FALSE))
+})
+
+################################################################################
+
