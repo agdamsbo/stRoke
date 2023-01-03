@@ -2,29 +2,39 @@
 % Please edit documentation in R/age_calc.R
 \name{age_calc}
 \alias{age_calc}
-\title{Calculating age from date of birth}
+\title{Calculate age in years, months, or days}
 \usage{
 age_calc(dob, enddate = Sys.Date(), units = "years", precise = TRUE)
 }
 \arguments{
-\item{dob}{Date of birth. Data format follows standard POSIX layout. Format is yyyy-mm-dd.}
+\item{dob}{Date of birth}
 
-\item{enddate}{Date to calculate age at. Format is yyyy-mm-dd.}
+\item{enddate}{End date for age calculation (default is Sys.Date())}
 
-\item{units}{Default is "years". Can be changed to "days".}
+\item{units}{Units for age calculation (default is "years").
+Can be c("days", "months", "years")}
 
-\item{precise}{Default is TRUE. Flag set whether to include calculations of spring years. Only of matter if using units = "days".}
+\item{precise}{Option to calculate age precisely (default is TRUE)}
 }
 \value{
-Vector of age
+Age
 }
 \description{
-For age calculations. Vectorised.
+Calculate age in years, months, or days
 }
 \examples{
+age_calc(dob = as.Date("1995-04-25"), enddate = as.Date("2020-04-25"), units = "years")
 # Kim Larsen (cpr is known from album)
   dob<-as.Date("1945-10-23")
   date<-as.Date("2018-09-30")
   trunc(age_calc(dob,date))
 }
+\references{
+Becker, J.P. (2020). eeptools: An R Package for Teaching and Learning Ecology and Evolutionary Biology. Journal of Statistical Software, 93(2), 1-27. doi: 10.18637/jss.v093.i02
+}
+\seealso{
+\code{\link[lubridate]{time_length}}
+}
 \keyword{age}
+\keyword{date}
+\keyword{time}
