@@ -6,7 +6,6 @@
 #' @param ... Additional arguments to be passed to \code{\link{source}}.
 #'
 #' @return The result of \code{\link{source}}.
-#' @seealso \code{\link[gist by christophergandrud]{https://gist.github.com/christophergandrud/1eb4e095974204b12af9}}
 #'
 #' @examples
 #' test_file <- tempfile(fileext = ".R")
@@ -16,5 +15,7 @@
 #' @export
 #'
 source_lines <- function(file, lines, ...){
+  # from gist by christophergandrud:
+  # https://gist.github.com/christophergandrud/1eb4e095974204b12af9
   source(textConnection(readLines(file)[lines]), ...)
 }

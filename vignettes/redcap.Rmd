@@ -2,7 +2,7 @@
 title: "Simple REDCap workflow"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{redcap}
+  %\VignetteIndexEntry{Simple REDCap workflow}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
