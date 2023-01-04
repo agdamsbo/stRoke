@@ -1,6 +1,7 @@
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml)
-[![pages-build-deployment](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment)
+[![Github Actions](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml)
+[![Page deployed](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment)
+[![codecov](https://codecov.io/github/agdamsbo/stRoke/branch/main/graph/badge.svg?token=U0RBZYSKG5)](https://codecov.io/github/agdamsbo/stRoke)
 <!-- badges: end -->
 
 # stRoke package <img src="man/figures/hexlogo.png" align="right" />

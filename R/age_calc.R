@@ -5,7 +5,7 @@
 #' @param units Units for age calculation (default is "years"). 
 #'              Can be c("days", "months", "years")
 #' @param precise Option to calculate age precisely (default is TRUE)
-#' @return Age
+#' @return numeric vector length 1
 #' @export
 #' 
 #' @examples
@@ -47,7 +47,7 @@ age_calc<-function (dob, enddate = Sys.Date(), units = "years", precise = TRUE)
                                                              0, FALSE, ifelse(end$year%%4 == 0, TRUE, FALSE)))
   }
   if (units == "days") {
-    result <- difftime(end, start, units = "days")
+    result <- as.numeric(difftime(end, start, units = "days"))
   }
   else if (units == "months") {
     months <- sapply(mapply(seq, as.POSIXct(start), as.POSIXct(end),

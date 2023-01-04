@@ -17,7 +17,7 @@ Can be c("days", "months", "years")}
 \item{precise}{Option to calculate age precisely (default is TRUE)}
 }
 \value{
-Age
+numeric vector length 1
 }
 \description{
 Calculate age in years, months, or days

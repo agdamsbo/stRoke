@@ -4,7 +4,7 @@
 \alias{ci_plot}
 \title{Confidence interval plot with point estimate}
 \usage{
-ci_plot(ds, x, y, vars, dec = 3, lbls = NULL, title = NULL)
+ci_plot(ds, x, y, vars = NULL, dec = 3, lbls = NULL, title = NULL)
 }
 \arguments{
 \item{ds}{data set}
@@ -31,6 +31,5 @@ Title and axis labels can be added to the ggplot afterwards.
 \examples{
 data(talos)
 talos[,"mrs_1"]<-factor(talos[,"mrs_1"],ordered=TRUE)
-talos$bin <- factor(sample(1:2, size = nrow(talos), replace = TRUE))
 ci_plot(ds = talos, x = "rtreat", y = "mrs_1", vars = c("hypertension","diabetes"))
 }

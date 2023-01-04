@@ -1,0 +1,51 @@
+---
+title: "Simple REDCap workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{redcap}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(stRoke)
+```
+
+# Working with data from REDCap
+
+[REDCap](https://www.project-redcap.org) is an excellent tool for clinical data acquisition and storage. It is widely used world wide and is the standard tool for medical research data in Denmark.
+
+In the case of analysing data directly whole storing data in REDCap, the API functionality is very convenient and secure, as you are not storing (possibly) sensitive data permanently on your computer.
+
+When using the "events" or "repeated instruments" functionality of REDCap, the data storage format is a little confusing to work with, when being accustomed to tidy data.
+
+The [`library(REDCapR)`](https://ouhscbbmc.github.io/REDCapR/) provides a simple way of working with data, however, the package just exports data in standard format.
+
+## Examples
+
+```{r readcapr-focused, eval=FALSE}
+library(REDCapR)
+# Returns the variables "record_id" and "age".
+ds_some_vars <- redcap_read(
+  redcap_uri   = "https://redcap.au.dk/api/",  # This is the address for projects at the AU-server
+  token        = "YOUR_API_KEY_GOES_HERE",
+  fields       = c("record_id", "age")
+)$data 
+
+# Return only records with IDs of 1 and 4
+ds_some_rows <- redcap_read(
+  redcap_uri   = "https://redcap.au.dk/api/",  # This is the address for projects at the AU-server
+  token        = "YOUR_API_KEY_GOES_HERE",
+  records      = c(1, 4)
+)$data
+```
+
+
+

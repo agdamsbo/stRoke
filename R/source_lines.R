@@ -1,14 +1,20 @@
-#' Source only specific lines from an R file
-#' 
-#' Copied from a gist by christophergandrud (https://gist.github.com/christophergandrud/1eb4e095974204b12af9)
-#' This function is really helpfull when working on eg sst.dk-servers. You can not load packages, so you have to re-write this function. It is short, and you will manage!
-#' @param file character string with path to the source file
-#' @param lines numeric vector of the lines to source from 'file'
-#' @param ... further arguments to be passed to source
+#' @title Source Lines from a File
+#' @description Sources specific lines from a file
 #'
-#' @return list
+#' @param file A character string giving the path to the file to be sourced.
+#' @param lines A numeric vector of line numbers to be sourced.
+#' @param ... Additional arguments to be passed to \code{\link{source}}.
+#'
+#' @return The result of \code{\link{source}}.
+#' @seealso \code{\link[gist by christophergandrud]{https://gist.github.com/christophergandrud/1eb4e095974204b12af9}}
+#'
+#' @examples
+#' test_file <- tempfile(fileext = ".R")
+#' writeLines(c("# Line 1", "2+2", "# Line 3"), test_file)
+#' source_lines(test_file, 1:2, echo=TRUE)
+#'
 #' @export
-#' 
+#'
 source_lines <- function(file, lines, ...){
   source(textConnection(readLines(file)[lines]), ...)
 }

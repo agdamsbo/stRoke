@@ -2,21 +2,29 @@
 % Please edit documentation in R/source_lines.R
 \name{source_lines}
 \alias{source_lines}
-\title{Source only specific lines from an R file}
+\title{Source Lines from a File}
 \usage{
 source_lines(file, lines, ...)
 }
 \arguments{
-\item{file}{character string with path to the source file}
+\item{file}{A character string giving the path to the file to be sourced.}
 
-\item{lines}{numeric vector of the lines to source from 'file'}
+\item{lines}{A numeric vector of line numbers to be sourced.}
 
-\item{...}{further arguments to be passed to source}
+\item{...}{Additional arguments to be passed to \code{\link{source}}.}
 }
 \value{
-list
+The result of \code{\link{source}}.
 }
 \description{
-Copied from a gist by christophergandrud (https://gist.github.com/christophergandrud/1eb4e095974204b12af9)
-This function is really helpfull when working on eg sst.dk-servers. You can not load packages, so you have to re-write this function. It is short, and you will manage!
+Sources specific lines from a file
+}
+\examples{
+test_file <- tempfile(fileext = ".R")
+writeLines(c("# Line 1", "2+2", "# Line 3"), test_file)
+source_lines(test_file, 1:2, echo=TRUE)
+
+}
+\seealso{
+\code{\link[gist by christophergandrud]{https://gist.github.com/christophergandrud/1eb4e095974204b12af9}}
 }

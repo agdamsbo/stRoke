@@ -58,3 +58,4 @@ data/*.R
 .Renviron
 .Rbuildignore
 
+inst/doc

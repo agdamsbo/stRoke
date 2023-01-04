@@ -22,19 +22,23 @@ utils::globalVariables(c("vname"))
 #' @examples
 #' data(talos)
 #' talos[,"mrs_1"]<-factor(talos[,"mrs_1"],ordered=TRUE)
-#' talos$bin <- factor(sample(1:2, size = nrow(talos), replace = TRUE))
 #' ci_plot(ds = talos, x = "rtreat", y = "mrs_1", vars = c("hypertension","diabetes"))
-ci_plot<- function(ds, x, y, vars, dec=3, lbls=NULL, title=NULL){
+ci_plot<- function(ds, x, y, vars=NULL, dec=3, lbls=NULL, title=NULL){
   
   if (is.factor(ds[y])) stop("Outcome has to be factor")
   
+  # Formula
+  ci_form <- as.formula(paste0(y,"~",x,"+."))
+  
+  # Ordinal logistic regression for non-dichotomous factors
   if (length(levels(ds[,y])) > 2){
-    m <- MASS::polr(as.formula(paste0(y,"~",x,"+.")), data=ds[,unique(c(x, y, vars))], Hess=TRUE, method="logistic")
+    m <- MASS::polr(formula = ci_form, data=ds[,unique(c(x, y, vars))], Hess=TRUE, method="logistic")
     if (is.null(title)) title <- "Ordinal logistic regression"
   }
   
+  # Binary logistic regression for dichotomous factors
   if (length(levels(ds[,y])) == 2){
-    m <- lm(as.formula(paste0(y,"~",x,"+.")), data=ds[,unique(c(x, y, vars))])
+    m <- lm(formula = ci_form, data=ds[,unique(c(x, y, vars))])
     if (is.null(title)) title <- "Binary logistic regression"
   }
   
@@ -60,4 +64,7 @@ ci_plot<- function(ds, x, y, vars, dec=3, lbls=NULL, title=NULL){
     ggplot2::labs(title=title) +
     ggplot2::coord_flip()
 }
+
+
+
 
