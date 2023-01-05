@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">stRoke</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.23.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.23.1.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,8 +93,593 @@ something like that.</p>
 I use regularly in addition to functions that I have written myself to
 fill use cases, that I have not been able to find solutions to
 elsewhere.</p>
+<div class="section level3">
+<h3 id="cpr-intro">CPR manipulations<a class="anchor" aria-label="anchor" href="#cpr-intro"></a>
+</h3>
+<p>Note that, if handled, CPR numbers (social security numbers) should
+be handled with care as they a considered highly sensitive data.</p>
+<p>The CPR number is structured as <em>DDMMYY-XXXX</em>, with the 1st
+<em>X</em> designating decade of birth, the last <em>X</em> designate
+binary gender (not biological sex) dependent on even/uneven as
+female/male, and the last for digits are used in a modulus calculation
+to verify the validity of the CPR number. Foreigners and unidentified
+persons are given temporary CPR numbers including letters.</p>
+<p>More information can be found on <a href="https://cpr.dk" class="external-link">cpr.dk</a>.</p>
+<p>Note, that all CPR numbers used in examples are publicly known or
+non-organic.</p>
+<div class="section level4">
+<h4 id="age_calc">age_calc()<a class="anchor" aria-label="anchor" href="#age_calc"></a>
+</h4>
+<p>The age_calc() function was created as a learning exercise and
+functions similarly to <code><a href="https://lubridate.tidyverse.org/reference/time_length.html" class="external-link">lubridate::time_length()</a></code>.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">age</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/age_calc.html">age_calc</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"1945-10-23"</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2018-09-30"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 72.93699</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">trunc</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 72</span></span></code></pre></div>
 </div>
-  </main>
+<div class="section level4">
+<h4 id="cpr_check">cpr_check()<a class="anchor" aria-label="anchor" href="#cpr_check"></a>
+</h4>
+<p>Checks validity of CPR numbers according to the <a href="https://cpr.dk/cpr-systemet/opbygning-af-cpr-nummeret" class="external-link">modulus 11
+rule</a>. Note that due to limitations in the possible available CPR
+numbers, this rule <a href="https://cpr.dk/cpr-systemet/personnumre-uden-kontrolciffer-modulus-11-kontrol" class="external-link">does
+not apply to all CPR numbers after 2007</a>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/cpr_check.html">cpr_check</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2310450637"</span>, <span class="st">"010190-2000"</span>, <span class="st">"010115-4000"</span>,<span class="st">"300450-1030"</span>,<span class="st">"010150-4021"</span>, <span class="st">"010150-4AA1"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; OBS: as per 2007 not all valid CPR numbers apply to modulus 11 rule. </span></span>
+<span><span class="co">#&gt; See the vignette 'Toolbox'</span></span>
+<span><span class="co">#&gt; Warning in matrix(as.numeric(unlist(strsplit(cpr_short, ""))), nrow = 10): NAs</span></span>
+<span><span class="co">#&gt; introduced by coercion</span></span>
+<span><span class="co">#&gt; [1]  TRUE FALSE FALSE FALSE FALSE    NA</span></span></code></pre></div>
+<p>Including CPR numbers with letters gives a warning and
+<code>NA</code>, as it can not be checked by the modulus 11 function.
+Should be used with care, see the message.</p>
+</div>
+<div class="section level4">
+<h4 id="cpr_dob">cpr_dob()<a class="anchor" aria-label="anchor" href="#cpr_dob"></a>
+</h4>
+<p>Extracts date of birth (DOB) from a CPR number. Accounts for the
+decade of birth. <a href="#cpr-intro">See earlier</a>.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/cpr_dob.html">cpr_dob</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2310450637"</span>, <span class="st">"010190-2000"</span>, <span class="st">"010115-4000"</span>,<span class="st">"300450-1030"</span>,<span class="st">"010150-4021"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "23-10-1945" "01-01-1990" "01-01-2015" "30-04-1950" "01-01-1950"</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="cpr_female">cpr_female()<a class="anchor" aria-label="anchor" href="#cpr_female"></a>
+</h4>
+<p>Gives logical vector of whether female gender from last digit of
+CPR.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/cpr_female.html">cpr_female</a></span><span class="op">(</span><span class="fu">stRoke</span><span class="fu">::</span><span class="va"><a href="../reference/cprs.html">cprs</a></span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   [1] FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE</span></span>
+<span><span class="co">#&gt;  [13]  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE</span></span>
+<span><span class="co">#&gt;  [25]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE</span></span>
+<span><span class="co">#&gt;  [37]  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE  TRUE  TRUE</span></span>
+<span><span class="co">#&gt;  [49] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE</span></span>
+<span><span class="co">#&gt;  [61] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE</span></span>
+<span><span class="co">#&gt;  [73]  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE</span></span>
+<span><span class="co">#&gt;  [85]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE</span></span>
+<span><span class="co">#&gt;  [97]  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE</span></span>
+<span><span class="co">#&gt; [109]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE  TRUE  TRUE  TRUE</span></span>
+<span><span class="co">#&gt; [121]  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE</span></span>
+<span><span class="co">#&gt; [133] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE</span></span>
+<span><span class="co">#&gt; [145]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE</span></span>
+<span><span class="co">#&gt; [157]  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE</span></span>
+<span><span class="co">#&gt; [169]  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE</span></span>
+<span><span class="co">#&gt; [181] FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE</span></span>
+<span><span class="co">#&gt; [193]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="plotting">Plotting<a class="anchor" aria-label="anchor" href="#plotting"></a>
+</h3>
+<div class="section level4">
+<h4 id="ci_plot">ci_plot()<a class="anchor" aria-label="anchor" href="#ci_plot"></a>
+</h4>
+<p>Plots odds ratios with 95 % confidence intervals. Performs binary
+logistic regression for outcome factors with two (2) levels and ordinal
+logistic regression for outcome factors with more than two levels. Mind
+relevant assumptions.</p>
+<p>Outputs ggplot element for further manipulation.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">talos</span><span class="op">)</span></span>
+<span><span class="va">talos</span><span class="op">[</span>,<span class="st">"mrs_1"</span><span class="op">]</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">talos</span><span class="op">[</span>,<span class="st">"mrs_1"</span><span class="op">]</span>,ordered<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/ci_plot.html">ci_plot</a></span><span class="op">(</span>ds <span class="op">=</span> <span class="va">talos</span>, x <span class="op">=</span> <span class="st">"rtreat"</span>, y <span class="op">=</span> <span class="st">"mrs_1"</span>, vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hypertension"</span>,<span class="st">"diabetes"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Waiting for profiling to be done...</span></span></code></pre></div>
+<p><img src="toolbox_files/figure-html/ci_plot-example-1.png" width="700"></p>
+</div>
+<div class="section level4">
+<h4 id="generic_stroke">generic_stroke()<a class="anchor" aria-label="anchor" href="#generic_stroke"></a>
+</h4>
+<p>For learning purposes. Uses annonymized data from the <a href="https://doi.org/10.1161/STROKEAHA.117.020067" class="external-link">TALOS trial</a> to
+output a Table 1 (with <code><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">gtsummary::tbl_summary()</a></code>), plotting
+the so-called grotta-bars based on mRS scores (with
+<code><a href="https://rdrr.io/pkg/rankinPlot/man/grottaBar.html" class="external-link">rankinPlot::grottaBar()</a></code>) and a ordinal logistic regression
+model plot (with <code><a href="../reference/ci_plot.html">stRoke::ci_plot()</a></code>).</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/generic_stroke.html">generic_stroke</a></span><span class="op">(</span><span class="fu">stRoke</span><span class="fu">::</span><span class="va"><a href="../reference/talos.html">talos</a></span>, <span class="st">"rtreat"</span>, <span class="st">"mrs_6"</span>, variables <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hypertension"</span>,<span class="st">"diabetes"</span>,<span class="st">"civil"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Waiting for profiling to be done...</span></span>
+<span><span class="co">#&gt; $`Table 1`</span></span>
+<span><span class="co">#&gt; &lt;div id="oxebipzbdp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;"&gt;</span></span>
+<span><span class="co">#&gt;   &lt;style&gt;html {</span></span>
+<span><span class="co">#&gt;   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_table {</span></span>
+<span><span class="co">#&gt;   display: table;</span></span>
+<span><span class="co">#&gt;   border-collapse: collapse;</span></span>
+<span><span class="co">#&gt;   margin-left: auto;</span></span>
+<span><span class="co">#&gt;   margin-right: auto;</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   font-size: 16px;</span></span>
+<span><span class="co">#&gt;   font-weight: normal;</span></span>
+<span><span class="co">#&gt;   font-style: normal;</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   width: auto;</span></span>
+<span><span class="co">#&gt;   border-top-style: solid;</span></span>
+<span><span class="co">#&gt;   border-top-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-top-color: #A8A8A8;</span></span>
+<span><span class="co">#&gt;   border-right-style: none;</span></span>
+<span><span class="co">#&gt;   border-right-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-right-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-bottom-style: solid;</span></span>
+<span><span class="co">#&gt;   border-bottom-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #A8A8A8;</span></span>
+<span><span class="co">#&gt;   border-left-style: none;</span></span>
+<span><span class="co">#&gt;   border-left-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-left-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_heading {</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   text-align: center;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   border-left-style: none;</span></span>
+<span><span class="co">#&gt;   border-left-width: 1px;</span></span>
+<span><span class="co">#&gt;   border-left-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-right-style: none;</span></span>
+<span><span class="co">#&gt;   border-right-width: 1px;</span></span>
+<span><span class="co">#&gt;   border-right-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_caption {</span></span>
+<span><span class="co">#&gt;   padding-top: 4px;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 4px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_title {</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   font-size: 125%;</span></span>
+<span><span class="co">#&gt;   font-weight: initial;</span></span>
+<span><span class="co">#&gt;   padding-top: 4px;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 4px;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   border-bottom-width: 0;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_subtitle {</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   font-size: 85%;</span></span>
+<span><span class="co">#&gt;   font-weight: initial;</span></span>
+<span><span class="co">#&gt;   padding-top: 0;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 6px;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt;   border-top-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   border-top-width: 0;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_bottom_border {</span></span>
+<span><span class="co">#&gt;   border-bottom-style: solid;</span></span>
+<span><span class="co">#&gt;   border-bottom-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_col_headings {</span></span>
+<span><span class="co">#&gt;   border-top-style: solid;</span></span>
+<span><span class="co">#&gt;   border-top-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-top-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-bottom-style: solid;</span></span>
+<span><span class="co">#&gt;   border-bottom-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-left-style: none;</span></span>
+<span><span class="co">#&gt;   border-left-width: 1px;</span></span>
+<span><span class="co">#&gt;   border-left-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-right-style: none;</span></span>
+<span><span class="co">#&gt;   border-right-width: 1px;</span></span>
+<span><span class="co">#&gt;   border-right-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_col_heading {</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   font-size: 100%;</span></span>
+<span><span class="co">#&gt;   font-weight: normal;</span></span>
+<span><span class="co">#&gt;   text-transform: inherit;</span></span>
+<span><span class="co">#&gt;   border-left-style: none;</span></span>
+<span><span class="co">#&gt;   border-left-width: 1px;</span></span>
+<span><span class="co">#&gt;   border-left-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-right-style: none;</span></span>
+<span><span class="co">#&gt;   border-right-width: 1px;</span></span>
+<span><span class="co">#&gt;   border-right-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   vertical-align: bottom;</span></span>
+<span><span class="co">#&gt;   padding-top: 5px;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 6px;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt;   overflow-x: hidden;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_column_spanner_outer {</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   font-size: 100%;</span></span>
+<span><span class="co">#&gt;   font-weight: normal;</span></span>
+<span><span class="co">#&gt;   text-transform: inherit;</span></span>
+<span><span class="co">#&gt;   padding-top: 0;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 0;</span></span>
+<span><span class="co">#&gt;   padding-left: 4px;</span></span>
+<span><span class="co">#&gt;   padding-right: 4px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_column_spanner_outer:first-child {</span></span>
+<span><span class="co">#&gt;   padding-left: 0;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_column_spanner_outer:last-child {</span></span>
+<span><span class="co">#&gt;   padding-right: 0;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_column_spanner {</span></span>
+<span><span class="co">#&gt;   border-bottom-style: solid;</span></span>
+<span><span class="co">#&gt;   border-bottom-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   vertical-align: bottom;</span></span>
+<span><span class="co">#&gt;   padding-top: 5px;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 5px;</span></span>
+<span><span class="co">#&gt;   overflow-x: hidden;</span></span>
+<span><span class="co">#&gt;   display: inline-block;</span></span>
+<span><span class="co">#&gt;   width: 100%;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_group_heading {</span></span>
+<span><span class="co">#&gt;   padding-top: 8px;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 8px;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   font-size: 100%;</span></span>
+<span><span class="co">#&gt;   font-weight: initial;</span></span>
+<span><span class="co">#&gt;   text-transform: inherit;</span></span>
+<span><span class="co">#&gt;   border-top-style: solid;</span></span>
+<span><span class="co">#&gt;   border-top-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-top-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-bottom-style: solid;</span></span>
+<span><span class="co">#&gt;   border-bottom-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-left-style: none;</span></span>
+<span><span class="co">#&gt;   border-left-width: 1px;</span></span>
+<span><span class="co">#&gt;   border-left-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-right-style: none;</span></span>
+<span><span class="co">#&gt;   border-right-width: 1px;</span></span>
+<span><span class="co">#&gt;   border-right-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   vertical-align: middle;</span></span>
+<span><span class="co">#&gt;   text-align: left;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_empty_group_heading {</span></span>
+<span><span class="co">#&gt;   padding: 0.5px;</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   font-size: 100%;</span></span>
+<span><span class="co">#&gt;   font-weight: initial;</span></span>
+<span><span class="co">#&gt;   border-top-style: solid;</span></span>
+<span><span class="co">#&gt;   border-top-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-top-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-bottom-style: solid;</span></span>
+<span><span class="co">#&gt;   border-bottom-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   vertical-align: middle;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_from_md &gt; :first-child {</span></span>
+<span><span class="co">#&gt;   margin-top: 0;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_from_md &gt; :last-child {</span></span>
+<span><span class="co">#&gt;   margin-bottom: 0;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_row {</span></span>
+<span><span class="co">#&gt;   padding-top: 8px;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 8px;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt;   margin: 10px;</span></span>
+<span><span class="co">#&gt;   border-top-style: solid;</span></span>
+<span><span class="co">#&gt;   border-top-width: 1px;</span></span>
+<span><span class="co">#&gt;   border-top-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-left-style: none;</span></span>
+<span><span class="co">#&gt;   border-left-width: 1px;</span></span>
+<span><span class="co">#&gt;   border-left-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-right-style: none;</span></span>
+<span><span class="co">#&gt;   border-right-width: 1px;</span></span>
+<span><span class="co">#&gt;   border-right-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   vertical-align: middle;</span></span>
+<span><span class="co">#&gt;   overflow-x: hidden;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_stub {</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   font-size: 100%;</span></span>
+<span><span class="co">#&gt;   font-weight: initial;</span></span>
+<span><span class="co">#&gt;   text-transform: inherit;</span></span>
+<span><span class="co">#&gt;   border-right-style: solid;</span></span>
+<span><span class="co">#&gt;   border-right-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-right-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_stub_row_group {</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   font-size: 100%;</span></span>
+<span><span class="co">#&gt;   font-weight: initial;</span></span>
+<span><span class="co">#&gt;   text-transform: inherit;</span></span>
+<span><span class="co">#&gt;   border-right-style: solid;</span></span>
+<span><span class="co">#&gt;   border-right-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-right-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt;   vertical-align: top;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_row_group_first td {</span></span>
+<span><span class="co">#&gt;   border-top-width: 2px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_summary_row {</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   text-transform: inherit;</span></span>
+<span><span class="co">#&gt;   padding-top: 8px;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 8px;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_first_summary_row {</span></span>
+<span><span class="co">#&gt;   border-top-style: solid;</span></span>
+<span><span class="co">#&gt;   border-top-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_first_summary_row.thick {</span></span>
+<span><span class="co">#&gt;   border-top-width: 2px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_last_summary_row {</span></span>
+<span><span class="co">#&gt;   padding-top: 8px;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 8px;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt;   border-bottom-style: solid;</span></span>
+<span><span class="co">#&gt;   border-bottom-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_grand_summary_row {</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   text-transform: inherit;</span></span>
+<span><span class="co">#&gt;   padding-top: 8px;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 8px;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_first_grand_summary_row {</span></span>
+<span><span class="co">#&gt;   padding-top: 8px;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 8px;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt;   border-top-style: double;</span></span>
+<span><span class="co">#&gt;   border-top-width: 6px;</span></span>
+<span><span class="co">#&gt;   border-top-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_striped {</span></span>
+<span><span class="co">#&gt;   background-color: rgba(128, 128, 128, 0.05);</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_table_body {</span></span>
+<span><span class="co">#&gt;   border-top-style: solid;</span></span>
+<span><span class="co">#&gt;   border-top-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-top-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-bottom-style: solid;</span></span>
+<span><span class="co">#&gt;   border-bottom-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_footnotes {</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   border-bottom-style: none;</span></span>
+<span><span class="co">#&gt;   border-bottom-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-left-style: none;</span></span>
+<span><span class="co">#&gt;   border-left-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-left-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-right-style: none;</span></span>
+<span><span class="co">#&gt;   border-right-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-right-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_footnote {</span></span>
+<span><span class="co">#&gt;   margin: 0px;</span></span>
+<span><span class="co">#&gt;   font-size: 90%;</span></span>
+<span><span class="co">#&gt;   padding-left: 4px;</span></span>
+<span><span class="co">#&gt;   padding-right: 4px;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_sourcenotes {</span></span>
+<span><span class="co">#&gt;   color: #333333;</span></span>
+<span><span class="co">#&gt;   background-color: #FFFFFF;</span></span>
+<span><span class="co">#&gt;   border-bottom-style: none;</span></span>
+<span><span class="co">#&gt;   border-bottom-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-bottom-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-left-style: none;</span></span>
+<span><span class="co">#&gt;   border-left-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-left-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt;   border-right-style: none;</span></span>
+<span><span class="co">#&gt;   border-right-width: 2px;</span></span>
+<span><span class="co">#&gt;   border-right-color: #D3D3D3;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_sourcenote {</span></span>
+<span><span class="co">#&gt;   font-size: 90%;</span></span>
+<span><span class="co">#&gt;   padding-top: 4px;</span></span>
+<span><span class="co">#&gt;   padding-bottom: 4px;</span></span>
+<span><span class="co">#&gt;   padding-left: 5px;</span></span>
+<span><span class="co">#&gt;   padding-right: 5px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_left {</span></span>
+<span><span class="co">#&gt;   text-align: left;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_center {</span></span>
+<span><span class="co">#&gt;   text-align: center;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_right {</span></span>
+<span><span class="co">#&gt;   text-align: right;</span></span>
+<span><span class="co">#&gt;   font-variant-numeric: tabular-nums;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_font_normal {</span></span>
+<span><span class="co">#&gt;   font-weight: normal;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_font_bold {</span></span>
+<span><span class="co">#&gt;   font-weight: bold;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_font_italic {</span></span>
+<span><span class="co">#&gt;   font-style: italic;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_super {</span></span>
+<span><span class="co">#&gt;   font-size: 65%;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_footnote_marks {</span></span>
+<span><span class="co">#&gt;   font-style: italic;</span></span>
+<span><span class="co">#&gt;   font-weight: normal;</span></span>
+<span><span class="co">#&gt;   font-size: 75%;</span></span>
+<span><span class="co">#&gt;   vertical-align: 0.4em;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_asterisk {</span></span>
+<span><span class="co">#&gt;   font-size: 100%;</span></span>
+<span><span class="co">#&gt;   vertical-align: 0;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_indent_1 {</span></span>
+<span><span class="co">#&gt;   text-indent: 5px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_indent_2 {</span></span>
+<span><span class="co">#&gt;   text-indent: 10px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_indent_3 {</span></span>
+<span><span class="co">#&gt;   text-indent: 15px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_indent_4 {</span></span>
+<span><span class="co">#&gt;   text-indent: 20px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; #oxebipzbdp .gt_indent_5 {</span></span>
+<span><span class="co">#&gt;   text-indent: 25px;</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; &lt;/style&gt;</span></span>
+<span><span class="co">#&gt;   &lt;table class="gt_table"&gt;</span></span>
+<span><span class="co">#&gt;   </span></span>
+<span><span class="co">#&gt;   &lt;thead class="gt_col_headings"&gt;</span></span>
+<span><span class="co">#&gt;     &lt;tr&gt;</span></span>
+<span><span class="co">#&gt;       &lt;th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&amp;lt;strong&amp;gt;Characteristic&amp;lt;/strong&amp;gt;"&gt;&lt;strong&gt;Characteristic&lt;/strong&gt;&lt;/th&gt;</span></span>
+<span><span class="co">#&gt;       &lt;th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&amp;lt;strong&amp;gt;Overall&amp;lt;/strong&amp;gt;, N = 200&amp;lt;sup class=&amp;quot;gt_footnote_marks&amp;quot;&amp;gt;1&amp;lt;/sup&amp;gt;"&gt;&lt;strong&gt;Overall&lt;/strong&gt;, N = 200&lt;sup class="gt_footnote_marks"&gt;1&lt;/sup&gt;&lt;/th&gt;</span></span>
+<span><span class="co">#&gt;       &lt;th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&amp;lt;strong&amp;gt;Active&amp;lt;/strong&amp;gt;, N = 79&amp;lt;sup class=&amp;quot;gt_footnote_marks&amp;quot;&amp;gt;1&amp;lt;/sup&amp;gt;"&gt;&lt;strong&gt;Active&lt;/strong&gt;, N = 79&lt;sup class="gt_footnote_marks"&gt;1&lt;/sup&gt;&lt;/th&gt;</span></span>
+<span><span class="co">#&gt;       &lt;th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&amp;lt;strong&amp;gt;Placebo&amp;lt;/strong&amp;gt;, N = 121&amp;lt;sup class=&amp;quot;gt_footnote_marks&amp;quot;&amp;gt;1&amp;lt;/sup&amp;gt;"&gt;&lt;strong&gt;Placebo&lt;/strong&gt;, N = 121&lt;sup class="gt_footnote_marks"&gt;1&lt;/sup&gt;&lt;/th&gt;</span></span>
+<span><span class="co">#&gt;     &lt;/tr&gt;</span></span>
+<span><span class="co">#&gt;   &lt;/thead&gt;</span></span>
+<span><span class="co">#&gt;   &lt;tbody class="gt_table_body"&gt;</span></span>
+<span><span class="co">#&gt;     &lt;tr&gt;&lt;td headers="label" class="gt_row gt_left"&gt;hypertension&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_0" class="gt_row gt_center"&gt;101 (50%)&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_1" class="gt_row gt_center"&gt;38 (48%)&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_2" class="gt_row gt_center"&gt;63 (52%)&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span><span class="co">#&gt;     &lt;tr&gt;&lt;td headers="label" class="gt_row gt_left"&gt;diabetes&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_0" class="gt_row gt_center"&gt;23 (12%)&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_1" class="gt_row gt_center"&gt;9 (11%)&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_2" class="gt_row gt_center"&gt;14 (12%)&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span><span class="co">#&gt;     &lt;tr&gt;&lt;td headers="label" class="gt_row gt_left"&gt;civil&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_0" class="gt_row gt_center"&gt;&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_1" class="gt_row gt_center"&gt;&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_2" class="gt_row gt_center"&gt;&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span><span class="co">#&gt;     &lt;tr&gt;&lt;td headers="label" class="gt_row gt_left"&gt;    alone&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_0" class="gt_row gt_center"&gt;59 (30%)&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_1" class="gt_row gt_center"&gt;22 (28%)&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_2" class="gt_row gt_center"&gt;37 (31%)&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span><span class="co">#&gt;     &lt;tr&gt;&lt;td headers="label" class="gt_row gt_left"&gt;    partner&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_0" class="gt_row gt_center"&gt;141 (70%)&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_1" class="gt_row gt_center"&gt;57 (72%)&lt;/td&gt;</span></span>
+<span><span class="co">#&gt; &lt;td headers="stat_2" class="gt_row gt_center"&gt;84 (69%)&lt;/td&gt;&lt;/tr&gt;</span></span>
+<span><span class="co">#&gt;   &lt;/tbody&gt;</span></span>
+<span><span class="co">#&gt;   </span></span>
+<span><span class="co">#&gt;   &lt;tfoot class="gt_footnotes"&gt;</span></span>
+<span><span class="co">#&gt;     &lt;tr&gt;</span></span>
+<span><span class="co">#&gt;       &lt;td class="gt_footnote" colspan="4"&gt;&lt;sup class="gt_footnote_marks"&gt;1&lt;/sup&gt; n (%)&lt;/td&gt;</span></span>
+<span><span class="co">#&gt;     &lt;/tr&gt;</span></span>
+<span><span class="co">#&gt;   &lt;/tfoot&gt;</span></span>
+<span><span class="co">#&gt; &lt;/table&gt;</span></span>
+<span><span class="co">#&gt; &lt;/div&gt;</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $`Figure 1`</span></span></code></pre></div>
+<p><img src="toolbox_files/figure-html/generic_stroke-example-1.png" width="700"></p>
+<pre><code><span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $`Figure 2`</span></span></code></pre>
+<p><img src="toolbox_files/figure-html/generic_stroke-example-2.png" width="700"></p>
+</div>
+<div class="section level4">
+<h4 id="index_plot">index_plot()<a class="anchor" aria-label="anchor" href="#index_plot"></a>
+</h4>
+<p>Used for plotting scores from a multi dimensional patient test.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/index_plot.html">index_plot</a></span><span class="op">(</span><span class="fu">stRoke</span><span class="fu">::</span><span class="va"><a href="../reference/score.html">score</a></span><span class="op">[</span><span class="va">score</span><span class="op">$</span><span class="va">event</span><span class="op">==</span><span class="st">"A"</span>,<span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<p><img src="toolbox_files/figure-html/index_plot-example-1.png" width="700"></p>
+</div>
+<div class="section level4">
+<h4 id="read_redcap_tables">read_redcap_tables()<a class="anchor" aria-label="anchor" href="#read_redcap_tables"></a>
+</h4>
+<p>Reads REDCap data accounting for events and repeated instruments.
+Based on <code><a href="https://ouhscbbmc.github.io/REDCapR/" class="external-link">library(REDCapR)</a></code> and
+<code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(agdamsbo/REDCapRITS)</a></code>.</p>
+<p>Please see <a href="https://agdamsbo.github.io/stRoke/articles/redcap.html" class="external-link">the
+vignette on REDCap</a>.</p>
+</div>
+</div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 

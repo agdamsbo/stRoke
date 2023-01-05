@@ -9,8 +9,7 @@ testthat::test_that("cpr_check() works for vectors, giving logicals", {
 
 testthat::test_that("cpr_dob() works for vectors, giving logicals", {
   result <- cpr_dob(c("2310450637", "010115-4000", "0101896000","010189-3000","300450-1030","010150-4021"))
-  testthat::expect_type(result, "double")
-  testthat::expect_s3_class(result, "Date")
+  testthat::expect_type(result, "character")
   testthat::expect_length(result, 6)
 })
 

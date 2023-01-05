@@ -18,6 +18,10 @@ knitr::opts_chunk$set(
 library(stRoke)
 ```
 
+# Initial note
+
+Please refer to the book ["neuRo-group"](https://agdamsbo.github.io/neuRo-group/) for a more thorough guide on using R and REDCap together in data analysis, but also for notes and advices on how to build a REDCap database. Note, that this book is a work in progress with no goal of "completion".
+
 # Working with data from REDCap
 
 [REDCap](https://www.project-redcap.org) is an excellent tool for clinical data acquisition and storage. It is widely used world wide and is the standard tool for medical research data in Denmark.
@@ -30,7 +34,7 @@ The [`library(REDCapR)`](https://ouhscbbmc.github.io/REDCapR/) provides a simple
 
 ## Examples
 
-```{r readcapr-focused, eval=FALSE}
+```{r redcapr-focused, eval=FALSE}
 library(REDCapR)
 # Returns the variables "record_id" and "age".
 ds_some_vars <- redcap_read(
@@ -48,4 +52,4 @@ ds_some_rows <- redcap_read(
 ```
 
 
-
+_more will be added_

@@ -4,13 +4,15 @@
 \alias{cpr_dob}
 \title{Extracting date of birth from CPR}
 \usage{
-cpr_dob(cpr)
+cpr_dob(cpr, format = "\%d-\%m-\%Y")
 }
 \arguments{
 \item{cpr}{cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.}
+
+\item{format}{character string of dob date format. Default is "\%d-\%m-\%Y".}
 }
 \value{
-vector of Date elements. Format yyyy-mm-dd
+character vector
 }
 \description{
 For easy calculation. Does not handle cprs with letters (interim cpr)

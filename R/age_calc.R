@@ -9,11 +9,7 @@
 #' @export
 #' 
 #' @examples
-#' age_calc(dob = as.Date("1995-04-25"), enddate = as.Date("2020-04-25"), units = "years")
-#' # Kim Larsen (cpr is known from album)
-#'   dob<-as.Date("1945-10-23")
-#'   date<-as.Date("2018-09-30")
-#'   trunc(age_calc(dob,date))
+#' trunc(age_calc(as.Date("1945-10-23"),as.Date("2018-09-30")))
 #' @references
 #' Becker, J.P. (2020). eeptools: An R Package for Teaching and Learning Ecology and Evolutionary Biology. Journal of Statistical Software, 93(2), 1-27. doi: 10.18637/jss.v093.i02
 #' 

@@ -1,3 +1,19 @@
+# stRoke 0.23.1.2
+
+## Functions:
+
+* cpr_dob() now includes `format=`.
+* Other minor updates.
+
+## Documentation:
+
+* Two new vignettes
+* Taking last steps in documenting before releasing on CRAN
+
+## Other:
+
+* New hex logo
+
 # stRoke 0.23.1.1
 
 ## Functions:

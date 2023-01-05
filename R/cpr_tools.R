@@ -17,8 +17,7 @@ cpr_check<-function(cpr){
   # Build upon data from this document: https://cpr.dk/media/12066/personnummeret-i-cpr.pdf
   ## OBS according to new description, not all valid CPR numbers apply to this modulus 11 rule.
   message(
-    "OBS: according to new description, not all valid CPR numbers apply to this modulus 11 rule. 
-    Please refer to: https://cpr.dk/media/12066/personnummeret-i-cpr.pdf")
+    "OBS: as per 2007 not all valid CPR numbers apply to modulus 11 rule. \nSee the vignette 'Toolbox'")
   
   str_length <- nchar(cpr) 
   # Calculating length of each element in vector
@@ -40,16 +39,17 @@ cpr_check<-function(cpr){
 #'
 #' For easy calculation. Does not handle cprs with letters (interim cpr)
 #' @param cpr cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.
+#' @param format character string of dob date format. Default is "%d-%m-%Y".
 #' @keywords cpr
-#'
-#' @return vector of Date elements. Format yyyy-mm-dd
+#' 
+#' @return character vector
 #' @export
 #'
 #' @examples
 #' cpr_dob("231045-0637")
 #' fsd<-c("2310450637", "010190-2000", "010115-4000","300450-1030","010150-4021")
 #' cpr_dob(fsd)
-cpr_dob<-function(cpr){
+cpr_dob<-function(cpr, format="%d-%m-%Y"){
   ## Input as cpr-numbers in format ddmmyy-xxxx
   ## Build upon data from this document: https://cpr.dk/media/12066/personnummeret-i-cpr.pdf
   
@@ -108,8 +108,7 @@ cpr_dob<-function(cpr){
     
   }
   
-  as.Date(dobs, origin = "1970-01-01")
-  
+  format(as.Date(dobs, origin = "1970-01-01"), format = format)
 }
 
 #' Determine female sex from CPR

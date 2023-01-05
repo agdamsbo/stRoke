@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">stRoke</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.23.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.23.1.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +58,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cpr_dob</span><span class="op">(</span><span class="va">cpr</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cpr_dob</span><span class="op">(</span><span class="va">cpr</span>, format <span class="op">=</span> <span class="st">"%d-%m-%Y"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -66,21 +66,25 @@
     <dl><dt>cpr</dt>
 <dd><p>cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.</p></dd>
 
+
+<dt>format</dt>
+<dd><p>character string of dob date format. Default is "%d-%m-%Y".</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>vector of Date elements. Format yyyy-mm-dd</p>
+<p>character vector</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">cpr_dob</span><span class="op">(</span><span class="st">"231045-0637"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1945-10-23"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "23-10-1945"</span>
 <span class="r-in"><span><span class="va">fsd</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2310450637"</span>, <span class="st">"010190-2000"</span>, <span class="st">"010115-4000"</span>,<span class="st">"300450-1030"</span>,<span class="st">"010150-4021"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">cpr_dob</span><span class="op">(</span><span class="va">fsd</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1945-10-23" "1990-01-01" "2015-01-01" "1950-04-30" "1950-01-01"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "23-10-1945" "01-01-1990" "01-01-2015" "30-04-1950" "01-01-1950"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

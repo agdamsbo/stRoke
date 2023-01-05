@@ -25,3 +25,7 @@ writeLines(c("# Line 1", "2+2", "# Line 3"), test_file)
 source_lines(test_file, 1:2, echo=TRUE)
 
 }
+\seealso{
+This function is borrowed
+from \href{https://gist.github.com/christophergandrud/1eb4e095974204b12af9}{christophergandrud}
+}

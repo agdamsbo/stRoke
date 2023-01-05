@@ -17,7 +17,7 @@ utils::globalVariables(c("vname"))
 #'
 #' @import ggplot2
 #' @importFrom MASS polr
-#' @importFrom stats as.formula coef confint formula lm quantile reorder
+#' @importFrom stats as.formula coef confint lm quantile reorder
 #'
 #' @examples
 #' data(talos)
