@@ -1,7 +1,8 @@
 utils::globalVariables(c("vname"))
 #' Confidence interval plot with point estimate
 #' 
-#' Horizontal forest plot of point estimate with confidence intervals. Includes dichotomous or olr, depending on number of levels in "x".
+#' Horizontal forest plot of point estimate with confidence intervals. 
+#' Includes dichotomous or olr, depending on number of levels in "x".
 #' Title and axis labels can be added to the ggplot afterwards.
 #'
 #' @param ds data set
@@ -17,7 +18,7 @@ utils::globalVariables(c("vname"))
 #'
 #' @import ggplot2
 #' @importFrom MASS polr
-#' @importFrom stats as.formula coef confint lm quantile reorder
+#' @importFrom stats as.formula coef confint lm quantile reorder binomial glm
 #'
 #' @examples
 #' data(talos)
@@ -25,20 +26,22 @@ utils::globalVariables(c("vname"))
 #' ci_plot(ds = talos, x = "rtreat", y = "mrs_1", vars = c("hypertension","diabetes"))
 ci_plot<- function(ds, x, y, vars=NULL, dec=3, lbls=NULL, title=NULL){
   
-  if (is.factor(ds[y])) stop("Outcome has to be factor")
+  if (!is.factor(ds[,y])) stop("Outcome has to be factor")
   
   # Formula
   ci_form <- as.formula(paste0(y,"~",x,"+."))
   
   # Ordinal logistic regression for non-dichotomous factors
   if (length(levels(ds[,y])) > 2){
-    m <- MASS::polr(formula = ci_form, data=ds[,unique(c(x, y, vars))], Hess=TRUE, method="logistic")
+    m <- MASS::polr(formula = ci_form, data=ds[,unique(c(x, y, vars))], 
+                    Hess=TRUE, method="logistic")
     if (is.null(title)) title <- "Ordinal logistic regression"
   }
   
   # Binary logistic regression for dichotomous factors
   if (length(levels(ds[,y])) == 2){
-    m <- lm(formula = ci_form, data=ds[,unique(c(x, y, vars))])
+    m <- glm(formula = ci_form, data=ds[unique(c(x, y, vars))],
+             family=binomial())
     if (is.null(title)) title <- "Binary logistic regression"
   }
   
@@ -48,23 +51,26 @@ ci_plot<- function(ds, x, y, vars=NULL, dec=3, lbls=NULL, title=NULL){
   rodds<-round(odds, digits = dec)
   
   if (is.null(lbls)){
-    odds$vname<-paste0(row.names(odds)," \n",paste0(rodds$or," [",rodds$lo,":",rodds$up,"]"))
+    odds$vname<-paste0(row.names(odds)," \n",
+                       paste0(rodds$or," 
+                              [",rodds$lo,":",rodds$up,"]"))
   } else {
-    odds$vname<-paste0(lbls," \n",paste0(rodds$or," [",rodds$lo,":",rodds$up,"]"))
+    odds$vname<-paste0(lbls," \n",paste0(rodds$or,
+                                         " [",rodds$lo,":",rodds$up,"]"))
     
   }
   
-  odds$ord<-c(nrow(odds):1)
+  odds$ord<-rev(seq_len(nrow(odds)))
   
-  ggplot2::ggplot(data = odds, mapping = ggplot2::aes(y = or, x = reorder(vname,ord))) +
+  ggplot2::ggplot(data = odds, 
+                  mapping = ggplot2::aes(y = or, x = reorder(vname,ord))) +
     ggplot2::geom_point() +
-    ggplot2::geom_errorbar(mapping = ggplot2::aes(ymin=lo, ymax=up), width = 0.2) +
+    ggplot2::geom_errorbar(mapping = ggplot2::aes(ymin=lo, ymax=up), 
+                           width = 0.2) +
     ggplot2::scale_y_log10() +
     ggplot2::geom_hline(yintercept = 1, linetype=2) +
     ggplot2::labs(title=title) +
     ggplot2::coord_flip()
 }
-
-
 
 

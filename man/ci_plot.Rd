@@ -25,7 +25,8 @@ ci_plot(ds, x, y, vars = NULL, dec = 3, lbls = NULL, title = NULL)
 ggplot element
 }
 \description{
-Horizontal forest plot of point estimate with confidence intervals. Includes dichotomous or olr, depending on number of levels in "x".
+Horizontal forest plot of point estimate with confidence intervals.
+Includes dichotomous or olr, depending on number of levels in "x".
 Title and axis labels can be added to the ggplot afterwards.
 }
 \examples{

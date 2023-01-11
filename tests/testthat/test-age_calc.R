@@ -11,8 +11,16 @@ test_that("age_calc works correctly for years", {
   expect_equal(age_calc(as.Date("2000-01-01"), as.Date("2020-01-01"), units = "years"), 20)
 })
 
+test_that("age_calc gives error if enddate < dob", {
+  expect_error(age_calc(as.Date("2020-01-01"), as.Date("2000-01-01"), units = "years"))
+})
+
 test_that("age_calc works correctly for months", {
   expect_equal(age_calc(as.Date("2000-01-01"), as.Date("2020-01-01"), units = "months"), 240)
+})
+
+test_that("age_calc works correctly for months", {
+  expect_equal(round(age_calc(as.Date("2000-07-07"), as.Date("2020-01-01"), units = "months")), 234)
 })
 
 test_that("age_calc works correctly for days", {
@@ -26,4 +34,8 @@ test_that("age_calc works correctly with leap years and precise set to TRUE", {
 
 test_that("age_calc throws an error when enddate is before dob", {
   expect_error(age_calc(as.Date("2020-01-01"), as.Date("2000-01-01"), units = "years"))
+})
+
+test_that("age_calc throws an error when wrong unit", {
+  expect_error(age_calc(as.Date("2020-01-01"), as.Date("2000-01-01"), units = "hours"))
 })

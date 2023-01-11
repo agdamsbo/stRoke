@@ -34,7 +34,8 @@ utils::globalVariables(c("or","ord","lo","up"))
 #' lm <- MASS::polr(ord~., data=iris, Hess=TRUE, method="logistic")
 #' plot_olr(lm, input="model")
 
-plot_olr<-function(x, title = NULL, dec=3, lbls=NULL, hori="OR (95 % CI)", vert="Variables", short=FALSE, input=c("model","df")){
+plot_olr<-function(x, title = NULL, dec=3, lbls=NULL, hori="OR (95 % CI)", 
+                   vert="Variables", short=FALSE, input=c("model","df")){
   
   if (input=="model"){
     odds <- data.frame(cbind(exp(coef(x)), exp(confint(x))))
@@ -47,9 +48,11 @@ plot_olr<-function(x, title = NULL, dec=3, lbls=NULL, hori="OR (95 % CI)", vert=
   rodds<-round(odds, digits = dec)
   
   if (!is.null(lbls)){
-    odds$vars<-paste0(lbls," \n",paste0(rodds$or," [",rodds$lo,":",rodds$up,"]"))
+    odds$vars<-paste0(lbls," \n",
+                      paste0(rodds$or," [",rodds$lo,":",rodds$up,"]"))
   } else {
-    odds$vars<-paste0(row.names(odds)," \n",paste0(rodds$or," [",rodds$lo,":",rodds$up,"]"))
+    odds$vars<-paste0(row.names(odds)," \n",
+                      paste0(rodds$or," [",rodds$lo,":",rodds$up,"]"))
   }
   
   ticks<-c(seq(0, 1, by =.1), seq(1, 10, by =1), seq(10, 100, by =10))

@@ -39,6 +39,7 @@ A data frame with 20 rows and 26 variables:
 data(score)
 }
 \description{
-Contains non-identifiable organic trial data from a five-dimensional cognitive test.
+Contains non-identifiable organic trial data from a
+five-dimensional cognitive test.
 }
 \keyword{datasets}

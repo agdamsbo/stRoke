@@ -7,7 +7,8 @@
 cpr_check(cpr)
 }
 \arguments{
-\item{cpr}{cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.}
+\item{cpr}{cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx.
+Also mixed formatting. Vector or data frame column.}
 }
 \value{
 Logical vector of cpr validity
@@ -16,7 +17,8 @@ Logical vector of cpr validity
 Checking validity of cpr number. Vectorised.
 }
 \examples{
-fsd<-c("2310450637", "010190-2000", "010115-4000","300450-1030","010150-4021")
+fsd<-c("2310450637", "010190-2000", "010115-4000",
+"300450-1030","010150-4021")
 cpr_check("2310450637")
 cpr_check(fsd)
 all(cpr_check(fsd))

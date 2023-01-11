@@ -1,6 +1,7 @@
 #' Data frame with sample data of cognitive testing score
 #'
-#' Contains non-identifiable organic trial data from a five-dimensional cognitive test.
+#' Contains non-identifiable organic trial data from a 
+#' five-dimensional cognitive test.
 #'
 #' @format A data frame with 20 rows and 26 variables:
 #' \describe{

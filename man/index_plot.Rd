@@ -20,7 +20,8 @@ index_plot(
 
 \item{sub_plot}{main outcome scores variable to plot}
 
-\item{scores}{variables to subset for plotting. Has to follow standard naming (is to be changed)}
+\item{scores}{variables to subset for plotting. Has to follow standard
+naming (is to be changed)}
 
 \item{dom_names}{domain names for axis naming}
 
@@ -30,7 +31,8 @@ index_plot(
 ggplot element
 }
 \description{
-Plot index scores from five dimensional cognitive testing. Includes option to facet.
+Plot index scores from five dimensional cognitive testing.
+Includes option to facet.
 }
 \examples{
 index_plot(stRoke::score[score$event=="A",])

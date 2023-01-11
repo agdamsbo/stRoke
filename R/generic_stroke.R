@@ -22,7 +22,8 @@ utils::globalVariables(c("df","group","score","strata"))
 #' @importFrom rankinPlot grottaBar
 #'
 #' @examples
-#' generic_stroke(stRoke::talos, "rtreat", "mrs_6", variables = c("hypertension","diabetes","civil"))
+#' generic_stroke(stRoke::talos, "rtreat", "mrs_6", 
+#' variables = c("hypertension","diabetes","civil"))
 generic_stroke <- function(df, group, score, strata = NULL, variables = NULL)
   {
   # if (!is.factor(df[,group])){
@@ -39,7 +40,9 @@ generic_stroke <- function(df, group, score, strata = NULL, variables = NULL)
                               colourScheme ="custom")
   
   df[,score] <- factor(df[,score],ordered = TRUE)
-  f2 <- plot_olr(MASS::polr(formula(paste0(score,"~.")), data=df[,c(group, score, variables)], Hess=TRUE, method="logistic"), input="model")
+  f2 <- plot_olr(MASS::polr(formula(paste0(score,"~.")), 
+                            data=df[,c(group, score, variables)], Hess=TRUE, 
+                            method="logistic"), input="model")
   
   list("Table 1" = t1, "Figure 1" = f1, "Figure 2" = f2)
 }

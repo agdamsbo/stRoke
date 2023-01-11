@@ -20,7 +20,8 @@
 #' mrs_1~"One month mRS", 
 #' mrs_6~"Six months mRS", 
 #' '[Intercept]'~"Intercept")
-#' stRoke::talos[vars] |> gtsummary::tbl_summary(label = label_select(labels_all,vars))
+#' stRoke::talos[vars] |> 
+#' gtsummary::tbl_summary(label = label_select(labels_all,vars))
 label_select<-function(lst,vec){
   lst[match(vec,unlist(lapply(lst,function(i){i[[2]]})))]
 }

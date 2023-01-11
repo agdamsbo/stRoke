@@ -7,7 +7,8 @@
 cpr_female(cpr)
 }
 \arguments{
-\item{cpr}{Vector. cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.}
+\item{cpr}{Vector. cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx.
+Also mixed formatting. Vector or data frame column.}
 }
 \value{
 Logical vector

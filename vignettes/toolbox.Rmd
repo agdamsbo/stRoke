@@ -24,6 +24,8 @@ My own toolbox in my small workshop is a mix of some old, worn, well proven tool
 
 I have tried to collect tools and functions from other packages that I use regularly in addition to functions that I have written myself to fill use cases, that I have not been able to find solutions to elsewhere.
 
+In documenting and testing the package, I have used [OpenAI's](https://beta.openai.com/overview) chatgpt with [gpttools](https://jameshwade.github.io/gpttools/). The chatgpt is an interesting tool, that is in no way perfect, but it helps with tedious tasks. Both `gpttools` and [`gptstudio`](https://michelnivard.github.io/gptstudio/) are interesting implementations in R and RStudio.
+
 ## CPR manipulations {#cpr-intro}
 
 Note that, if handled, CPR numbers (social security numbers) should be handled with care as they a considered highly sensitive data.
@@ -66,7 +68,7 @@ cpr_dob(c("2310450637", "010190-2000", "010115-4000","300450-1030","010150-4021"
 Gives logical vector of whether female gender from last digit of CPR.
 
 ```{r cpr_female-example}
-cpr_female(stRoke::cprs[,1])
+table(cpr_female(stRoke::cprs[,1]))
 ```
 
 ## Plotting

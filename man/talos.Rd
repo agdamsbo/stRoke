@@ -16,12 +16,13 @@ A data frame with 200 rows and 6 variables:
 }
 }
 \source{
-\url{https://doi.org/10.1161/STROKEAHA.117.020067/}
+\doi{10.1161/STROKEAHA.117.020067}
 }
 \usage{
 data(talos)
 }
 \description{
-Contains of non-identifiable data from the \href{https://doi.org/10.1161/STROKEAHA.117.020067/}{TALOS trial}
+Contains of non-identifiable data from
+the \href{https://doi.org/10.1161/STROKEAHA.117.020067/}{TALOS trial}
 }
 \keyword{datasets}

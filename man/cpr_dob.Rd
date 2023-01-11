@@ -7,7 +7,8 @@
 cpr_dob(cpr, format = "\%d-\%m-\%Y")
 }
 \arguments{
-\item{cpr}{cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx. Also mixed formatting. Vector or data frame column.}
+\item{cpr}{cpr-numbers as ddmmyy"-."xxxx or ddmmyyxxxx.
+Also mixed formatting. Vector or data frame column.}
 
 \item{format}{character string of dob date format. Default is "\%d-\%m-\%Y".}
 }
@@ -19,7 +20,8 @@ For easy calculation. Does not handle cprs with letters (interim cpr)
 }
 \examples{
 cpr_dob("231045-0637")
-fsd<-c("2310450637", "010190-2000", "010115-4000","300450-1030","010150-4021")
+fsd<-c("2310450637", "010190-2000", "010115-4000",
+"300450-1030","010150-4021")
 cpr_dob(fsd)
 }
 \keyword{cpr}

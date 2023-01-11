@@ -28,14 +28,16 @@ read_redcap_tables(
 
 \item{forms}{forms to download}
 
-\item{generics}{vector of auto-generated generic variable names to ignore when discarding empty rows}
+\item{generics}{vector of auto-generated generic variable names to
+ignore when discarding empty rows}
 }
 \value{
 list of instruments
 }
 \description{
-Wrapper function for using REDCapR::redcap_read and REDCapRITS::REDCap_split including some clean-up.
-Handles
+Wrapper function for using REDCapR::redcap_read and REDCapRITS::REDCap_split
+including some clean-up. Works with longitudinal projects with repeating
+instruments.
 }
 \examples{
 # Examples will be provided later

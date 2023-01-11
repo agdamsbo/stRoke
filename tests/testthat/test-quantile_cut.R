@@ -6,7 +6,19 @@ test_that("quatile_cut() works for detail.list==FALSE", {
 
 ################################################################################
 
-test_that("quatile_cut() works for detail.list==FALSE", {
+test_that("quatile_cut() works for inc.outs==TRUE", {
+  result <- quantile_cut(iris$Sepal.Length,3,y=iris$Sepal.Length+3,inc.outs=FALSE)
+  expect_true(any(is.na(result)))
+  
+  result <- quantile_cut(iris$Sepal.Length,3,y=iris$Sepal.Length+3,inc.outs=TRUE)
+  expect_false(any(is.na(result)))
+  expect_equal(length(levels(result)), 3)
+  expect_s3_class(result, "factor")
+})
+
+################################################################################
+
+test_that("quatile_cut() works for detail.list==TRUE", {
   result <- quantile_cut(iris$Sepal.Length,3,detail.list=TRUE)
   expect_length(result, 2)
   expect_type(result, "list")
@@ -26,3 +38,4 @@ test_that("quantile_cut works correctly", {
 
 ################################################################################
 
+range(iris$Sepal.Length)

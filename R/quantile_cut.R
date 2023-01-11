@@ -20,16 +20,20 @@
 #' x <- 1:450
 #' y <- 6:750
 #' summary(quantile_cut(aa,groups=4,detail.list=FALSE)) ## Cuts quartiles
-quantile_cut<-function (x, groups, y=NULL, na.rm = TRUE, group.names = NULL, ordered.f = FALSE, inc.outs=FALSE, detail.list=FALSE){
+quantile_cut<-function (x, groups, y=NULL, na.rm = TRUE, 
+                        group.names = NULL, ordered.f = FALSE, inc.outs=FALSE, 
+                        detail.list=FALSE){
   if (!is.null(y)){
-    q<-quantile(y, probs = seq(0, 1, 1/groups), na.rm = na.rm, names = TRUE, type = 7)
-    if (inc.outs){ # Setting cut boardes to include outliers in x compared to y.
+    q<-quantile(y, probs = seq(0, 1, 1/groups), na.rm = na.rm, 
+                names = TRUE, type = 7)
+    if (inc.outs){ # Setting cut borders to include outliers in x compared to y.
       q[1]<-min(x,na.rm = TRUE)
       q[length(q)]<-max(x,na.rm = TRUE)
     }
   }
   if (is.null(y)){
-    q<-quantile(x, probs = seq(0, 1, 1/groups), na.rm = na.rm, names = TRUE, type = 7)
+    q<-quantile(x, probs = seq(0, 1, 1/groups), na.rm = na.rm, 
+                names = TRUE, type = 7)
 
   }
   d<-cut(x, q, include.lowest = TRUE, labels = group.names,
