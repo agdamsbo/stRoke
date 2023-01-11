@@ -61,7 +61,7 @@ plot_olr<-function(x, title = NULL, dec=3, lbls=NULL, hori="OR (95 % CI)",
     ticks<-ticks[seq(1, length(ticks), 2)]
   }
   
-  odds$ord<-c(nrow(odds):1)
+  odds$ord<-rev(seq_len(nrow(odds)))
   
   odds|>
     ggplot2::ggplot(mapping = ggplot2::aes(y = or, x = reorder(vars,ord))) +
