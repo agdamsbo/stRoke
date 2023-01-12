@@ -20,15 +20,18 @@ quantile_cut(
 
 \item{groups}{Number of groups.}
 
-\item{y}{alternative vector to draw quantile cuts from. Limits has to be within x. Default is NULL.}
+\item{y}{alternative vector to draw quantile cuts from. Limits has
+to be within x. Default is NULL.}
 
 \item{na.rm}{Remove NA's. Default is TRUE.}
 
-\item{group.names}{Names of groups to split to. Default is NULL, giving intervals as names.}
+\item{group.names}{Names of groups to split to. Default is NULL,
+giving intervals as names.}
 
 \item{ordered.f}{Set resulting vector as ordered. Default is FALSE.}
 
-\item{inc.outs}{Flag to include min(x) and max(x) as boarders in case of y!=NULL.}
+\item{inc.outs}{Flag to include min(x) and max(x)
+as borders in case of y!=NULL.}
 
 \item{detail.list}{flag to include details or not}
 }

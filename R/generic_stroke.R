@@ -20,29 +20,42 @@ utils::globalVariables(c("df","group","score","strata"))
 #' @importFrom gtsummary add_overall
 #' @importFrom MASS polr
 #' @importFrom rankinPlot grottaBar
+#' @importFrom stats as.formula
 #'
 #' @examples
-#' generic_stroke(stRoke::talos, "rtreat", "mrs_6", 
+#' generic_stroke(df = stRoke::talos, group = "rtreat", score = "mrs_6", 
 #' variables = c("hypertension","diabetes","civil"))
-generic_stroke <- function(df, group, score, strata = NULL, variables = NULL)
-  {
-  # if (!is.factor(df[,group])){
-  #   df[,group] <- factor(df[,group])
-  # }
-  t1<-gtsummary::tbl_summary(data = df[,c(group,variables)], 
-                             by = group) |> 
-    gtsummary::add_overall()
-  
-  x <- table(df[,c(group, score, strata)])
-  f1 <- rankinPlot::grottaBar(x = x, groupName = group,
-                              scoreName = score,
-                              strataName = strata,
-                              colourScheme ="custom")
-  
-  df[,score] <- factor(df[,score],ordered = TRUE)
-  f2 <- plot_olr(MASS::polr(formula(paste0(score,"~.")), 
-                            data=df[,c(group, score, variables)], Hess=TRUE, 
-                            method="logistic"), input="model")
-  
-  list("Table 1" = t1, "Figure 1" = f1, "Figure 2" = f2)
-}
+generic_stroke <-
+  function(df,
+           group,
+           score,
+           strata = NULL,
+           variables = NULL){
+    t1 <- gtsummary::tbl_summary(data = df[, c(group, variables)],
+                                 by = group) |>
+      gtsummary::add_overall()
+    
+    x <- table(df[, c(group, score, strata)])
+    f1 <- rankinPlot::grottaBar(
+      x = x,
+      groupName = group,
+      scoreName = score,
+      strataName = strata,
+      colourScheme = "custom"
+    )
+    
+    df[, score] <- factor(df[, score], ordered = TRUE)
+    
+    f2 <- ci_plot(MASS::polr(
+      as.formula(paste0(score, "~.")),
+      data = df[, c(group, score, variables)],
+      Hess = TRUE,
+      method = "logistic"
+    ),
+    method = "model")
+    
+    list("Table 1" = t1,
+         "Figure 1" = f1,
+         "Figure 2" = f2)
+  }
+

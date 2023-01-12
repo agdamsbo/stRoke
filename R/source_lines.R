@@ -13,9 +13,10 @@
 #' source_lines(test_file, 1:2, echo=TRUE)
 #'
 #' @export
-#' @seealso This function is borrowed 
-#' from [christophergandrud](https://gist.github.com/christophergandrud/1eb4e095974204b12af9)
+#' @seealso This function is borrowed from a
+#' [gist](https://gist.github.com/christophergandrud/1eb4e095974204b12af9)
+#' by christophergandrud.
 #'
-source_lines <- function(file, lines, ...){
+source_lines <- function(file, lines, ...) {
   source(textConnection(readLines(file)[lines]), ...)
 }

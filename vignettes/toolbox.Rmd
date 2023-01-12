@@ -41,7 +41,7 @@ Note, that all CPR numbers used in examples are publicly known or non-organic.
 The age_calc() function was created as a learning exercise and functions similarly to `lubridate::time_length()`.
 
 ```{r age_calc-example}
-(age <- age_calc(as.Date("1945-10-23"),as.Date("2018-09-30")))
+(age <- age_calc(as.Date("1945-10-23"), as.Date("2018-09-30")))
 trunc(age)
 ```
 
@@ -50,7 +50,16 @@ trunc(age)
 Checks validity of CPR numbers according to the [modulus 11 rule](https://cpr.dk/cpr-systemet/opbygning-af-cpr-nummeret). Note that due to limitations in the possible available CPR numbers, this rule [does not apply to all CPR numbers after 2007](https://cpr.dk/cpr-systemet/personnumre-uden-kontrolciffer-modulus-11-kontrol).
 
 ```{r cpr_check-example}
-cpr_check(c("2310450637", "010190-2000", "010115-4000","300450-1030","010150-4021", "010150-4AA1"))
+cpr_check(
+  c(
+    "2310450637",
+    "010190-2000",
+    "010115-4000",
+    "300450-1030",
+    "010150-4021",
+    "010150-4AA1"
+  )
+)
 ```
 
 Including CPR numbers with letters gives a warning and `NA`, as it can not be checked by the modulus 11 function. Should be used with care, see the message.
@@ -60,7 +69,13 @@ Including CPR numbers with letters gives a warning and `NA`, as it can not be ch
 Extracts date of birth (DOB) from a CPR number. Accounts for the decade of birth. [See earlier](#cpr-intro).
 
 ```{r cpr_dob-example}
-cpr_dob(c("2310450637", "010190-2000", "010115-4000","300450-1030","010150-4021"))
+cpr_dob(c(
+  "2310450637",
+  "010190-2000",
+  "010115-4000",
+  "300450-1030",
+  "010150-4021"
+))
 ```
 
 ### cpr_female()
@@ -68,7 +83,7 @@ cpr_dob(c("2310450637", "010190-2000", "010115-4000","300450-1030","010150-4021"
 Gives logical vector of whether female gender from last digit of CPR.
 
 ```{r cpr_female-example}
-table(cpr_female(stRoke::cprs[,1]))
+table(cpr_female(stRoke::cprs[, 1]))
 ```
 
 ## Plotting
@@ -81,8 +96,13 @@ Outputs ggplot element for further manipulation.
 
 ```{r ci_plot-example}
 data(talos)
-talos[,"mrs_1"]<-factor(talos[,"mrs_1"],ordered=TRUE)
-ci_plot(ds = talos, x = "rtreat", y = "mrs_1", vars = c("hypertension","diabetes"))
+talos[, "mrs_1"] <- factor(talos[, "mrs_1"], ordered = TRUE)
+ci_plot(
+  ds = talos,
+  x = "rtreat",
+  y = "mrs_1",
+  vars = c("hypertension", "diabetes")
+)
 ```
 
 ### generic_stroke()
@@ -90,8 +110,38 @@ ci_plot(ds = talos, x = "rtreat", y = "mrs_1", vars = c("hypertension","diabetes
 For learning purposes. Uses annonymized data from the [TALOS trial](https://doi.org/10.1161/STROKEAHA.117.020067) to output a Table 1 (with `gtsummary::tbl_summary()`), plotting the so-called grotta-bars based on mRS scores (with `rankinPlot::grottaBar()`) and a ordinal logistic regression model plot (with `stRoke::ci_plot()`).
 
 ```{r generic_stroke-example}
-generic_stroke(stRoke::talos, "rtreat", "mrs_6", variables = c("hypertension","diabetes","civil"))
+generic_stroke(stRoke::talos,
+               "rtreat",
+               "mrs_6",
+               variables = c("hypertension", "diabetes", "civil"))
 ```
+
+You can make a combined plot of the ppplot elements with `library(patchwork)` and use `gt_plot()` to plot gt elements.
+
+```{r gt_plot-example}
+if (!requireNamespace("patchwork", quietly = TRUE)) {
+    install.packages("patchwork")
+  } else require(patchwork)
+
+data(talos)
+talos[, "alone"] <-
+  factor(ifelse(talos[, "civil"] == "alone", "yes", "no"))
+talos[, "placebo"] <-
+  factor(ifelse(talos[, "rtreat"] == "Placebo", "yes", "no"))
+l <-
+  generic_stroke(
+    df = talos,
+    group = "placebo",
+    score = "mrs_6",
+    variables = c("hypertension", "diabetes", "alone")
+  )
+
+# l[[1]] |> gt_plot() 
+
+l[[2]] + l[[3]]
+
+```
+
 
 
 ### index_plot()
@@ -99,7 +149,7 @@ generic_stroke(stRoke::talos, "rtreat", "mrs_6", variables = c("hypertension","d
 Used for plotting scores from a multi dimensional patient test.
 
 ```{r index_plot-example}
-index_plot(stRoke::score[score$event=="A",])
+index_plot(stRoke::score[score$event == "A", ])
 ```
 
 ### read_redcap_tables()

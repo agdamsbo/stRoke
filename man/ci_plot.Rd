@@ -4,10 +4,19 @@
 \alias{ci_plot}
 \title{Confidence interval plot with point estimate}
 \usage{
-ci_plot(ds, x, y, vars = NULL, dec = 3, lbls = NULL, title = NULL)
+ci_plot(
+  ds,
+  x = NULL,
+  y = NULL,
+  vars = NULL,
+  dec = 3,
+  lbls = NULL,
+  title = NULL,
+  method = "auto"
+)
 }
 \arguments{
-\item{ds}{data set}
+\item{ds}{main input, either data set or logistic model}
 
 \item{x}{text string of main exposure variable}
 
@@ -20,6 +29,9 @@ ci_plot(ds, x, y, vars = NULL, dec = 3, lbls = NULL, title = NULL)
 \item{lbls}{Labels for variable names}
 
 \item{title}{Plot title. Can be specified later.}
+
+\item{method}{Character vector. The method for the regression.
+Can be c("auto", "model").}
 }
 \value{
 ggplot element
@@ -30,7 +42,13 @@ Includes dichotomous or olr, depending on number of levels in "x".
 Title and axis labels can be added to the ggplot afterwards.
 }
 \examples{
+# Auto plot
 data(talos)
 talos[,"mrs_1"]<-factor(talos[,"mrs_1"],ordered=TRUE)
-ci_plot(ds = talos, x = "rtreat", y = "mrs_1", vars = c("hypertension","diabetes"))
+ci_plot(ds = talos, x = "rtreat", y = "mrs_1", 
+vars = c("hypertension","diabetes"))
+# Model plot
+iris$ord<-factor(sample(1:3,size=nrow(iris),replace=TRUE),ordered=TRUE)
+lm <- MASS::polr(ord~., data=iris, Hess=TRUE, method="logistic")
+ci_plot(ds = lm, method="model")
 }

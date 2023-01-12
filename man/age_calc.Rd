@@ -3,6 +3,9 @@
 \name{age_calc}
 \alias{age_calc}
 \title{Calculate age in years, months, or days}
+\source{
+\doi{10.18637/jss.v093.i02}
+}
 \usage{
 age_calc(dob, enddate = Sys.Date(), units = "years", precise = TRUE)
 }
@@ -26,9 +29,9 @@ Calculate age in years, months, or days
 trunc(age_calc(as.Date("1945-10-23"),as.Date("2018-09-30")))
 }
 \references{
-Becker, J.P. (2020). eeptools: An R Package for Teaching and Learning Ecology
-and Evolutionary Biology. Journal of Statistical Software, 93(2), 1-27.
-doi: 10.18637/jss.v093.i02
+Becker, J.P. (2020). eeptools: An R Package for Teaching and Learning
+Ecology and Evolutionary Biology. Journal of Statistical Software,
+93(2), 1-27.
 }
 \seealso{
 \code{\link[lubridate]{time_length}}

@@ -11,16 +11,16 @@
 #' @examples
 #' trunc(age_calc(as.Date("1945-10-23"),as.Date("2018-09-30")))
 #' @references
-#' Becker, J.P. (2020). eeptools: An R Package for Teaching and Learning Ecology 
-#' and Evolutionary Biology. Journal of Statistical Software, 93(2), 1-27. 
-#' doi: 10.18637/jss.v093.i02
+#' Becker, J.P. (2020). eeptools: An R Package for Teaching and Learning 
+#' Ecology and Evolutionary Biology. Journal of Statistical Software, 
+#' 93(2), 1-27.
+#' @source \doi{10.18637/jss.v093.i02}
 #' 
 #' @seealso \code{\link[lubridate]{time_length}}
 #' @keywords date time age
 
 age_calc<-function (dob, enddate = Sys.Date(), units = "years", precise = TRUE)
 {
-  
   if (!inherits(dob, "Date") | !inherits(enddate, "Date")) {
     stop("Both dob and enddate must be Date class objects")
   }
@@ -50,12 +50,24 @@ age_calc<-function (dob, enddate = Sys.Date(), units = "years", precise = TRUE)
     result <- as.numeric(difftime(end, start, units = "days"))
   }
   else if (units == "months") {
-    months <- sapply(mapply(seq, as.POSIXct(start), as.POSIXct(end),
-                            by = "months", SIMPLIFY = FALSE), length) - 1
+    months <- vapply(
+      mapply(
+        seq,
+        as.POSIXct(start),
+        as.POSIXct(end),
+        by = "months",
+        SIMPLIFY = FALSE
+      ),
+      length,
+      numeric(1)
+    ) - 1
+    
+    
+    
     if (precise) {
       month_length_end <- ifelse(end$mon == 1 & end_is_leap,
-                                 29, ifelse(end$mon == 1, 28, 
-                                            ifelse(end$mon %in% c(3, 5, 8, 10), 
+                                 29, ifelse(end$mon == 1, 28,
+                                            ifelse(end$mon %in% c(3, 5, 8, 10),
                                                    30, 31)))
       month_length_prior <- ifelse((end$mon - 1) == 1 &
                                      start_is_leap, 29, 
@@ -75,8 +87,17 @@ age_calc<-function (dob, enddate = Sys.Date(), units = "years", precise = TRUE)
     }
   }
   else if (units == "years") {
-    years <- sapply(mapply(seq, as.POSIXct(start), as.POSIXct(end),
-                           by = "years", SIMPLIFY = FALSE), length) - 1
+    years <- vapply(
+      mapply(
+        seq,
+        as.POSIXct(start),
+        as.POSIXct(end),
+        by = "years",
+        SIMPLIFY = FALSE
+      ),
+      length,
+      numeric(1)
+    ) - 1
     if (precise) {
       start_length <- ifelse(start_is_leap, 366, 365)
       end_length <- ifelse(end_is_leap, 366, 365)

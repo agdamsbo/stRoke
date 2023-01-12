@@ -38,17 +38,17 @@ The [`library(REDCapR)`](https://ouhscbbmc.github.io/REDCapR/) provides a simple
 library(REDCapR)
 # Returns the variables "record_id" and "age".
 ds_some_vars <- redcap_read(
-  redcap_uri   = "https://redcap.au.dk/api/",  # This is the address for projects at the AU-server
+  redcap_uri   = "https://redcap.au.dk/api/",
+  # This is the address for projects at the AU-server
   token        = "YOUR_API_KEY_GOES_HERE",
   fields       = c("record_id", "age")
-)$data 
+)$data
 
 # Return only records with IDs of 1 and 4
-ds_some_rows <- redcap_read(
-  redcap_uri   = "https://redcap.au.dk/api/",  # This is the address for projects at the AU-server
-  token        = "YOUR_API_KEY_GOES_HERE",
-  records      = c(1, 4)
-)$data
+ds_some_rows <- redcap_read(redcap_uri   = "https://redcap.au.dk/api/",
+                            # This is the address for projects at the AU-server
+                            token        = "YOUR_API_KEY_GOES_HERE",
+                            records      = c(1, 4))$data
 ```
 
 

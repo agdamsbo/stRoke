@@ -26,6 +26,7 @@ source_lines(test_file, 1:2, echo=TRUE)
 
 }
 \seealso{
-This function is borrowed
-from \href{https://gist.github.com/christophergandrud/1eb4e095974204b12af9}{christophergandrud}
+This function is borrowed from a
+\href{https://gist.github.com/christophergandrud/1eb4e095974204b12af9}{gist}
+by christophergandrud.
 }

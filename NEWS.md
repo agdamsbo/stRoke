@@ -1,3 +1,16 @@
+# stRoke 0.23.1.4
+
+## Functions:
+
+* plot_olr() has been deprecated and removed. 
+* ci_plot() functionality extended to include logistic model plotting.
+* age_calc() use vapply() instead of sapply()
+* gt_plot() function added to plot gt elements as ggplots. From [bstfun](https://github.com/MSKCC-Epi-Bio/bstfun). Not all done and satisfied with the layout with patchwork.
+
+## Documentation
+
+* Trying to complete all flags from goodpractice and inteRgrate
+
 # stRoke 0.23.1.3
 
 ## Functions:

@@ -10,7 +10,7 @@ This is an R-toolbox of custom functions for convenient data management and anal
 The package is mainly collected for personal use, but any use beyond that is encouraged.
 This package has migrated functions from the agdamsbo/daDoctoR-package, and new functions has been added.
 
-## Source
+## Contribute
 
 This package is [shared on GitHub](https://github.com/agdamsbo/stRoke), and you are very welcome to contribute by opening an issue or a pull request.
 
