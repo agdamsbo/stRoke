@@ -1,3 +1,7 @@
+# stRoke 0.23.1.5
+
+## RELEASE ON CRAN
+
 # stRoke 0.23.1.4
 
 ## Functions:

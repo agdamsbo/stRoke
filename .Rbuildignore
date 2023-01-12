@@ -12,3 +12,4 @@
 ^data/cprs\.R$
 ^data/cprs\.csv$
 ^data-raw$
+^cran-comments\.md$
