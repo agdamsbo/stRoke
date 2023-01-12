@@ -118,10 +118,8 @@ generic_stroke(stRoke::talos,
 
 You can make a combined plot of the ppplot elements with `library(patchwork)` and use `gt_plot()` to plot gt elements.
 
-```{r gt_plot-example}
-if (!requireNamespace("patchwork", quietly = TRUE)) {
-    install.packages("patchwork")
-  } else require(patchwork)
+```{r gt_plot-example, eval=FALSE}
+require(patchwork)
 
 data(talos)
 talos[, "alone"] <-
