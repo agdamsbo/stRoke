@@ -11,12 +11,14 @@
 #' @examples
 #' trunc(age_calc(as.Date("1945-10-23"),as.Date("2018-09-30")))
 #' @references
+#' A similar functionality is achievable 
+#' with \code{\link[lubridate]{time_length}}
+#' 
 #' Becker, J.P. (2020). eeptools: An R Package for Teaching and Learning 
 #' Ecology and Evolutionary Biology. Journal of Statistical Software, 
 #' 93(2), 1-27.
 #' @source \doi{10.18637/jss.v093.i02}
 #' 
-#' @seealso \code{\link[lubridate]{time_length}}
 #' @keywords date time age
 
 age_calc<-function (dob, enddate = Sys.Date(), units = "years", precise = TRUE)
