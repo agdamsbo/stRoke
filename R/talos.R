@@ -1,7 +1,6 @@
 #' Data frame with sample of TALOS data
 #'
-#' Contains of non-identifiable data from 
-#' the [TALOS trial](https://doi.org/10.1161/STROKEAHA.117.020067/)
+#' Contains of non-identifiable subset of data from the TALOS trial.
 #'
 #' @format A data frame with 200 rows and 6 variables:
 #' \describe{
