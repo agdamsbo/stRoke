@@ -1,4 +1,10 @@
-# stRoke 0.23.1.5
+# stRoke 23.1.6
+
+## Notes:
+
+* 23.1.5 failed on CRAN due to gt_plot(). This function has been dropped. Find it as as_ggplot() elsewhere.
+
+# stRoke 23.1.5
 
 ## RELEASE ON CRAN
 

@@ -1,6 +1,6 @@
 Package: stRoke
 Title: Clinical Stroke Research Toolbox
-Version: 23.1.5
+Version: 23.1.6
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7559-1154"))
@@ -30,9 +30,7 @@ Imports:
     cli,
     dplyr,
     ggplot2,
-    gt,
     gtsummary,
-    magick,
     MASS,
     rankinPlot,
     REDCapR,

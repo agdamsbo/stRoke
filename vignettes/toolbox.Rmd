@@ -116,32 +116,6 @@ generic_stroke(stRoke::talos,
                variables = c("hypertension", "diabetes", "civil"))
 ```
 
-You can make a combined plot of the ppplot elements with `library(patchwork)` and use `gt_plot()` to plot gt elements.
-
-```{r gt_plot-example, eval=FALSE}
-require(patchwork)
-
-data(talos)
-talos[, "alone"] <-
-  factor(ifelse(talos[, "civil"] == "alone", "yes", "no"))
-talos[, "placebo"] <-
-  factor(ifelse(talos[, "rtreat"] == "Placebo", "yes", "no"))
-l <-
-  generic_stroke(
-    df = talos,
-    group = "placebo",
-    score = "mrs_6",
-    variables = c("hypertension", "diabetes", "alone")
-  )
-
-# l[[1]] |> gt_plot() 
-
-l[[2]] + l[[3]]
-
-```
-
-
-
 ### index_plot()
 
 Used for plotting scores from a multi dimensional patient test.
