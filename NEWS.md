@@ -1,5 +1,7 @@
 # stRoke 23.1.6
 
+## New ttempt at CRAN submission
+
 ## Functions:
 
 * win_prop() added to implement the suggested methods in [DOI: 10.1161/STROKEAHA.121.037744](https://doi.org/10.1161/STROKEAHA.121.037744), as an implementation of "Tournament Methods" also found in `library(genodds)`. The function is based on the spreadsheet provided by the authors. A print.win_Prop is also added for printing.
@@ -10,7 +12,7 @@
 
 # stRoke 23.1.5
 
-## RELEASE ON CRAN
+## RELEASE ON CRAN - failed
 
 # stRoke 0.23.1.4
 
