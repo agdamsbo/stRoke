@@ -1,10 +1,11 @@
 
+
 #' @title Calculates the probability of winning
 #' @description Calculates the probability of winning (winP)
 #' @param data A data frame containing the response and group variable.
-#' @param response The name of the response variable. 
+#' @param response The name of the response variable.
 #' Takes first column if empty.
-#' @param group The name of the group variable. 
+#' @param group The name of the group variable.
 #' Takes second column if empty.
 #' @param alpha The alpha level for the hypothesis test. Default is 0.05.
 #' @param beta The beta level for the sample size calculation. Default is 0.2.
@@ -12,7 +13,7 @@
 #' @param sample.size Flag to include sample size calculation. Default is FALSE.
 #' @param print.tables Flag to print cumulative tables. Default is FALSE.
 #' @param dec Numeric for decimals to print. Default is 3.
-#' @return A list containing the win_prob statistic, the confidence interval, 
+#' @return A list containing the win_prob statistic, the confidence interval,
 #' and the p-value.
 #' @export
 #' @importFrom stats pnorm qnorm xtabs
@@ -29,12 +30,11 @@ win_prob <-
            sample.size = FALSE,
            print.tables = FALSE,
            dec = 3) {
-    
-    if (is.null(response)){
+    if (is.null(response)) {
       response <- names(data)[1]
     }
     
-    if (is.null(group)){
+    if (is.null(group)) {
       group <- names(data)[2]
     }
     
@@ -44,11 +44,11 @@ win_prob <-
       stop("The group has to contain 2, and only 2 levels.")
     }
     
-    if (!is.numeric(group.ratio)){
+    if (!is.numeric(group.ratio)) {
       stop("Group ratio must be a numeric")
     }
     
-    if (!is.logical(sample.size)){
+    if (!is.logical(sample.size)) {
       stop("Sample size must be a logical")
     }
     
@@ -59,7 +59,8 @@ win_prob <-
         n_i <- nrow(i)
         for (j in seq_len(n_i)) {
           if (j < n_i) {
-            rank[j] <- ((i[j, x] + 1) / 2 + (sum(i[seq_len(n_i)[(j + 1):n_i], x])))
+            rank[j] <-
+              ((i[j, x] + 1) / 2 + (sum(i[seq_len(n_i)[(j + 1):n_i], x])))
           }
           if (j == n_i) {
             rank[j] <- (i[j, x] + 1) / 2
@@ -109,15 +110,15 @@ win_prob <-
     se_win_prob <- sqrt(var_win_prob)
     
     ci_up <-
-      exp(log(winP_a / (1 - winP_a)) - qnorm(1 - alpha / 2) * se_win_prob / 
-            (winP_a / (1 - winP_a))) / 
-      (1 + exp(log(winP_a / (1 - winP_a)) - qnorm(1 - alpha / 2) * 
+      exp(log(winP_a / (1 - winP_a)) - qnorm(1 - alpha / 2) * se_win_prob /
+            (winP_a / (1 - winP_a))) /
+      (1 + exp(log(winP_a / (1 - winP_a)) - qnorm(1 - alpha / 2) *
                  se_win_prob / (winP_a / (1 - winP_a))))
     
     ci_lo <-
-      exp(log(winP_b / (1 - winP_b)) + qnorm(1 - alpha / 2) * se_win_prob / 
-            (winP_b / (1 - winP_b))) / 
-      (1 + exp(log(winP_b / (1 - winP_b)) + qnorm(1 - alpha / 2) * 
+      exp(log(winP_b / (1 - winP_b)) + qnorm(1 - alpha / 2) * se_win_prob /
+            (winP_b / (1 - winP_b))) /
+      (1 + exp(log(winP_b / (1 - winP_b)) + qnorm(1 - alpha / 2) *
                  se_win_prob / (winP_b / (1 - winP_b))))
     
     test_stat <-
@@ -130,40 +131,41 @@ win_prob <-
     
     if (sample.size) {
       ss_n <-
-        ceiling((group.ratio + 1) / group.ratio * 
-                  (qnorm(1 - alpha / 2) + qnorm(1 - beta)) ^ 2 * 
-                  (var_win_frac_a + group.ratio * var_win_frac_b) / 
+        ceiling((group.ratio + 1) / group.ratio *
+                  (qnorm(1 - alpha / 2) + qnorm(1 - beta)) ^ 2 *
+                  (var_win_frac_a + group.ratio * var_win_frac_b) /
                   (winP_a * (1 - winP_a) * log(winP_a / (1 - winP_a))) ^ 2
         )
     }
     
-    out <- list(list_cum=list_cum,
-                group_levels=group_levels,
-                sum_a=sum_a,
-                sum_b=sum_b,
-                winP_a=winP_a,
-                winP_b=winP_b,
-                var_win_frac_a=var_win_frac_a,
-                var_win_frac_b=var_win_frac_b,
-                var_win_prob=var_win_prob,
-                se_win_prob=se_win_prob,
-                conf.int=c(ci_lo,ci_up),
-                test_stat=test_stat,
-                p_val=p_val,
-                nnt=nnt,
-                ss_n=ss_n,
-                param.record = list(
-                  data = data,
-                  response = response,
-                  group = group,
-                  alpha = alpha,
-                  beta = beta,
-                  group.ratio = group.ratio,
-                  sample.size = sample.size,
-                  print.tables = print.tables,
-                  dec = dec
-                )
-                )
+    out <- list(
+      list_cum = list_cum,
+      group_levels = group_levels,
+      sum_a = sum_a,
+      sum_b = sum_b,
+      winP_a = winP_a,
+      winP_b = winP_b,
+      var_win_frac_a = var_win_frac_a,
+      var_win_frac_b = var_win_frac_b,
+      var_win_prob = var_win_prob,
+      se_win_prob = se_win_prob,
+      conf.int = c(ci_lo, ci_up),
+      test_stat = test_stat,
+      p_val = p_val,
+      nnt = nnt,
+      ss_n = ss_n,
+      param.record = list(
+        data = data,
+        response = response,
+        group = group,
+        alpha = alpha,
+        beta = beta,
+        group.ratio = group.ratio,
+        sample.size = sample.size,
+        print.tables = print.tables,
+        dec = dec
+      )
+    )
     class(out) <- c("win_Prop", class(out))
     return(out)
   }
@@ -175,7 +177,9 @@ print.win_Prop <- function (x, ...) {
   cat("\t Zou et al's winP (doi: 10.1161/STROKEAHA.121.037744) \n\n")
   cat(
     sprintf(
-      "Probability of a random observation in %s group \nwill have a higher response score than a random\nobservation in %s group:\n\n",
+      "Probability of a random observation in %s group 
+      will have a higher response score than a random
+      observation in %s group:\n\n",
       x$group_levels[2],
       x$group_levels[1]
     )
@@ -223,9 +227,9 @@ print.win_Prop <- function (x, ...) {
   if (x$param.record$print.tables) {
     cat("--------------------------------------------\n\n")
     
-    lc <- lapply(x$list_cum,function(i,t = c("prop","win_frac")){
-      i[t] <- round(i[t],x$param.record$dec)
-      i[,!names(i) == x$param.record$group]
+    lc <- lapply(x$list_cum, function(i, t = c("prop", "win_frac")) {
+      i[t] <- round(i[t], x$param.record$dec)
+      i[, !names(i) == x$param.record$group]
     })
     
     for (i in x$group_levels) {
@@ -238,6 +242,3 @@ print.win_Prop <- function (x, ...) {
   }
   return(invisible(x))
 }
-
-
-
