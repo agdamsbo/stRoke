@@ -21,6 +21,18 @@ test_that("Sample size must be a logical", {
   expect_error(win_prob(data[c("mrs_6","rtreat")], sample.size = "a"))
 })
 
-test_that("Output length is 16", {
-  expect_length(win_prob(data[c("mrs_6","rtreat")]), 16)
+test_that("Include sample size", {
+  expect_true(!is.na(win_prob(data[c("mrs_6","rtreat")], 
+                              sample.size = TRUE)$ss_n))
+})
+
+test_that("Output length is 16, and print works", {
+  result <-
+    win_prob(data[c("mrs_6", "rtreat")], 
+             sample.size = TRUE, 
+             print.tables = TRUE)
+  expect_length(result, 16)
+  expect_s3_class(result, "win_Prop")
+  expect_output(print.win_Prop(result))
+  
 })
