@@ -1,5 +1,9 @@
 # stRoke 23.1.6
 
+## Functions:
+
+* win_prop() added to implement the suggested methods in [DOI: 10.1161/STROKEAHA.121.037744](https://doi.org/10.1161/STROKEAHA.121.037744), as an implementation of "Tournament Methods" also found in `library(genodds)`. The function is based on the spreadsheet provided by the authors. A print.win_Prop is also added for printing.
+
 ## Notes:
 
 * 23.1.5 failed on CRAN due to gt_plot(). This function has been dropped. Find it as as_ggplot() elsewhere.

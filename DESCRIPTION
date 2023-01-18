@@ -22,8 +22,7 @@ Suggests:
     remotes,
     rmarkdown,
     spelling,
-    testthat (>= 3.0.0),
-    webshot2
+    testthat (>= 3.0.0)
 Language: en-US
 Config/testthat/edition: 3
 Imports: 
