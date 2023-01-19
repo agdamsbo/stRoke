@@ -41,8 +41,7 @@ Takes second column if empty.}
 \item{dec}{Numeric for decimals to print. Default is 3.}
 }
 \value{
-A list containing the win_prob statistic, the confidence interval,
-and the p-value.
+A list containing the win_prob statistics.
 }
 \description{
 Calculates the probability of winning (winP)

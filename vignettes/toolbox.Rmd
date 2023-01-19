@@ -124,12 +124,6 @@ Used for plotting scores from a multi dimensional patient test.
 index_plot(stRoke::score[score$event == "A", ])
 ```
 
-### read_redcap_tables()
-
-Reads REDCap data accounting for events and repeated instruments. Based on `library(REDCapR)` and `library(agdamsbo/REDCapRITS)`.
-
-Please see [the vignette on REDCap](https://agdamsbo.github.io/stRoke/articles/redcap.html).
-
 ### win_prob()
 
 The `win_prob()` is an implementation of the Tournament Method for calculating the probability of winning as suggested by [Zou et al 2022](https://doi.org/10.1161/STROKEAHA.121.037744). The authors has included a spreadsheet as supplementary materials. This function aims to mimic that functionality. The function also includes a `print()` extension for nice printing.

@@ -13,8 +13,7 @@
 #' @param sample.size Flag to include sample size calculation. Default is FALSE.
 #' @param print.tables Flag to print cumulative tables. Default is FALSE.
 #' @param dec Numeric for decimals to print. Default is 3.
-#' @return A list containing the win_prob statistic, the confidence interval,
-#' and the p-value.
+#' @return A list containing the win_prob statistics.
 #' @export
 #' @importFrom stats pnorm qnorm xtabs
 #' @source \doi{10.1161/STROKEAHA.121.037744}

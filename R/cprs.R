@@ -7,7 +7,7 @@
 #' \describe{
 #'   \item{cpr}{Mixed format cpr-numbers, characters}
 #' }
-#' @source \url{https://da.wikipedia.org/wiki/231045-0637}
+#' @seealso \url{https://da.wikipedia.org/wiki/231045-0637}
 #' @usage data(cprs)
 "cprs"
 
