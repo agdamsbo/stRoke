@@ -1,7 +1,9 @@
 
 
 #' @title Calculates the probability of winning
-#' @description Calculates the probability of winning (winP)
+#' @description Calculates the probability of winning (winP). In the referenced 
+#' article Zou et al (2022) proposes a method for calculating probability of
+#' winning with a confidence interval an p-value testing.
 #' @param data A data frame containing the response and group variable.
 #' @param response The name of the response variable.
 #' Takes first column if empty.
@@ -13,7 +15,7 @@
 #' @param sample.size Flag to include sample size calculation. Default is FALSE.
 #' @param print.tables Flag to print cumulative tables. Default is FALSE.
 #' @param dec Numeric for decimals to print. Default is 3.
-#' @return A list containing the win_prob statistics.
+#' @return A list containing the win_prob statistics. 
 #' @export
 #' @importFrom stats pnorm qnorm xtabs
 #' @source \doi{10.1161/STROKEAHA.121.037744}

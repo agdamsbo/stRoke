@@ -27,11 +27,9 @@ Calculate age in years, months, or days
 }
 \examples{
 trunc(age_calc(as.Date("1945-10-23"),as.Date("2018-09-30")))
+
 }
 \references{
-A similar functionality is achievable
-with \code{\link[lubridate]{time_length}}
-
 Becker, J.P. (2020). eeptools: An R Package for Teaching and Learning
 Ecology and Evolutionary Biology. Journal of Statistical Software,
 93(2), 1-27.

@@ -44,7 +44,9 @@ Takes second column if empty.}
 A list containing the win_prob statistics.
 }
 \description{
-Calculates the probability of winning (winP)
+Calculates the probability of winning (winP). In the referenced
+article Zou et al (2022) proposes a method for calculating probability of
+winning with a confidence interval an p-value testing.
 }
 \examples{
 win_prob(data=stRoke::talos,response="mrs_6",group="rtreat")
