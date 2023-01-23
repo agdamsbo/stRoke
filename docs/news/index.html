@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">stRoke</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">23.1.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">23.1.7</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,6 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/redcap.html">Simple REDCap workflow</a>
     <a class="dropdown-item" href="../articles/toolbox.html">Toolbox</a>
   </div>
 </li>
@@ -52,49 +51,58 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="23.1.6" id="stroke-2316">stRoke 23.1.6<a class="anchor" aria-label="anchor" href="#stroke-2316"></a></h2>
-<div class="section level3">
-<h3 id="new-ttempt-at-cran-submission-23-1-6">New ttempt at CRAN submission<a class="anchor" aria-label="anchor" href="#new-ttempt-at-cran-submission-23-1-6"></a></h3>
+<h2 class="pkg-version" data-toc-text="23.1.7" id="stroke-2317">stRoke 23.1.7<a class="anchor" aria-label="anchor" href="#stroke-2317"></a></h2>
+<div class="section level4">
+<h4 id="functions-23-1-7">Functions:<a class="anchor" aria-label="anchor" href="#functions-23-1-7"></a></h4>
+<ul><li>redcap_read_tables() has been removed from the package for now. Looking to add it back later as a minimal data acquisition tool.</li>
+</ul></div>
 </div>
-<div class="section level3">
-<h3 id="functions-23-1-6">Functions:<a class="anchor" aria-label="anchor" href="#functions-23-1-6"></a></h3>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="23.1.6" id="stroke-2316---failed-due-to-dependencies">stRoke 23.1.6 - failed due to dependencies<a class="anchor" aria-label="anchor" href="#stroke-2316---failed-due-to-dependencies"></a></h2>
+<div class="section level4">
+<h4 id="new-attempt-at-cran-submission-23-1-6">New attempt at CRAN submission<a class="anchor" aria-label="anchor" href="#new-attempt-at-cran-submission-23-1-6"></a></h4>
+</div>
+<div class="section level4">
+<h4 id="functions-23-1-6">Functions:<a class="anchor" aria-label="anchor" href="#functions-23-1-6"></a></h4>
 <ul><li>win_prop() added to implement the suggested methods in <a href="https://doi.org/10.1161/STROKEAHA.121.037744" class="external-link">DOI: 10.1161/STROKEAHA.121.037744</a>, as an implementation of “Tournament Methods” also found in <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(genodds)</a></code>. The function is based on the spreadsheet provided by the authors. A print.win_Prop is also added for printing.</li>
 </ul></div>
-<div class="section level3">
-<h3 id="notes-23-1-6">Notes:<a class="anchor" aria-label="anchor" href="#notes-23-1-6"></a></h3>
+<div class="section level4">
+<h4 id="notes-23-1-6">Notes:<a class="anchor" aria-label="anchor" href="#notes-23-1-6"></a></h4>
 <ul><li>23.1.5 failed on CRAN due to gt_plot(). This function has been dropped. Find it as as_ggplot() elsewhere.</li>
+<li>agdamsbo/REDCapRITS added as “Additional_repositories”.</li>
+<li>Included references listed as authors.</li>
 </ul></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="23.1.5" id="stroke-2315">stRoke 23.1.5<a class="anchor" aria-label="anchor" href="#stroke-2315"></a></h2>
-<div class="section level3">
-<h3 id="release-on-cran---failed-23-1-5">RELEASE ON CRAN - failed<a class="anchor" aria-label="anchor" href="#release-on-cran---failed-23-1-5"></a></h3>
+<div class="section level4">
+<h4 id="release-on-cran---failed-23-1-5">RELEASE ON CRAN - failed<a class="anchor" aria-label="anchor" href="#release-on-cran---failed-23-1-5"></a></h4>
 </div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.23.1.4" id="stroke-02314">stRoke 0.23.1.4<a class="anchor" aria-label="anchor" href="#stroke-02314"></a></h2>
-<div class="section level3">
-<h3 id="functions-0-23-1-4">Functions:<a class="anchor" aria-label="anchor" href="#functions-0-23-1-4"></a></h3>
+<div class="section level4">
+<h4 id="functions-0-23-1-4">Functions:<a class="anchor" aria-label="anchor" href="#functions-0-23-1-4"></a></h4>
 <ul><li>plot_olr() has been deprecated and removed.</li>
 <li>ci_plot() functionality extended to include logistic model plotting.</li>
 <li>age_calc() use vapply() instead of sapply()</li>
 <li>gt_plot() function added to plot gt elements as ggplots. From <a href="https://github.com/MSKCC-Epi-Bio/bstfun" class="external-link">bstfun</a>. Not all done and satisfied with the layout with patchwork.</li>
 </ul></div>
-<div class="section level3">
-<h3 id="documentation-0-23-1-4">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-23-1-4"></a></h3>
+<div class="section level4">
+<h4 id="documentation-0-23-1-4">Documentation<a class="anchor" aria-label="anchor" href="#documentation-0-23-1-4"></a></h4>
 <ul><li>Trying to complete all flags from goodpractice and inteRgrate</li>
 </ul></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.23.1.3" id="stroke-02313">stRoke 0.23.1.3<a class="anchor" aria-label="anchor" href="#stroke-02313"></a></h2>
-<div class="section level3">
-<h3 id="functions-0-23-1-3">Functions:<a class="anchor" aria-label="anchor" href="#functions-0-23-1-3"></a></h3>
+<div class="section level4">
+<h4 id="functions-0-23-1-3">Functions:<a class="anchor" aria-label="anchor" href="#functions-0-23-1-3"></a></h4>
 <ul><li>files_filter() added. Simple function to get file names in path with specified filter.</li>
 <li>updated cpr_dob to give warnings if format is not recognised and return NAs.</li>
 <li>ci_plot() updated to actually handle binary factors. Uses glm(), not lm().</li>
 </ul></div>
-<div class="section level3">
-<h3 id="documentation-0-23-1-3">Documentation:<a class="anchor" aria-label="anchor" href="#documentation-0-23-1-3"></a></h3>
+<div class="section level4">
+<h4 id="documentation-0-23-1-3">Documentation:<a class="anchor" aria-label="anchor" href="#documentation-0-23-1-3"></a></h4>
 <ul><li>test, test and tests to satisfy codecov and, of course, ensure higher quality</li>
 <li>changes to comply with goodpractices::gp()</li>
 </ul><p>…and probably some more.</p>
@@ -102,29 +110,29 @@
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.23.1.2" id="stroke-02312">stRoke 0.23.1.2<a class="anchor" aria-label="anchor" href="#stroke-02312"></a></h2>
-<div class="section level3">
-<h3 id="functions-0-23-1-2">Functions:<a class="anchor" aria-label="anchor" href="#functions-0-23-1-2"></a></h3>
+<div class="section level4">
+<h4 id="functions-0-23-1-2">Functions:<a class="anchor" aria-label="anchor" href="#functions-0-23-1-2"></a></h4>
 <ul><li>cpr_dob() now includes <code>format=</code>.</li>
 <li>Other minor updates.</li>
 </ul></div>
-<div class="section level3">
-<h3 id="documentation-0-23-1-2">Documentation:<a class="anchor" aria-label="anchor" href="#documentation-0-23-1-2"></a></h3>
+<div class="section level4">
+<h4 id="documentation-0-23-1-2">Documentation:<a class="anchor" aria-label="anchor" href="#documentation-0-23-1-2"></a></h4>
 <ul><li>Two new vignettes</li>
 <li>Taking last steps in documenting before releasing on CRAN</li>
 </ul></div>
-<div class="section level3">
-<h3 id="other-0-23-1-2">Other:<a class="anchor" aria-label="anchor" href="#other-0-23-1-2"></a></h3>
+<div class="section level4">
+<h4 id="other-0-23-1-2">Other:<a class="anchor" aria-label="anchor" href="#other-0-23-1-2"></a></h4>
 <ul><li>New hex logo</li>
 </ul></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.23.1.1" id="stroke-02311">stRoke 0.23.1.1<a class="anchor" aria-label="anchor" href="#stroke-02311"></a></h2>
-<div class="section level3">
-<h3 id="functions-0-23-1-1">Functions:<a class="anchor" aria-label="anchor" href="#functions-0-23-1-1"></a></h3>
+<div class="section level4">
+<h4 id="functions-0-23-1-1">Functions:<a class="anchor" aria-label="anchor" href="#functions-0-23-1-1"></a></h4>
 <ul><li>age_calc() now also outputs a numeric vector for units=“days”, and not a character vector as difftime() would.</li>
 </ul></div>
-<div class="section level3">
-<h3 id="documentation-0-23-1-1">Documentation:<a class="anchor" aria-label="anchor" href="#documentation-0-23-1-1"></a></h3>
+<div class="section level4">
+<h4 id="documentation-0-23-1-1">Documentation:<a class="anchor" aria-label="anchor" href="#documentation-0-23-1-1"></a></h4>
 <ul><li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
 <li>Added codecov</li>
 <li>Added tests with the help of gpttools</li>
