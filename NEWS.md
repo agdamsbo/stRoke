@@ -1,3 +1,13 @@
+# stRoke 23.1.8
+
+### Functions:
+
+* write_ical() is an easy to use implementation of the package `library(calendar)` for easy conversion of spreadsheets to ical object. Export an .ics file using `calendar::ic_write()`. 
+
+### Notes:
+
+This is the first update on CRAN.
+
 # stRoke 23.1.7
 
 ### Functions:

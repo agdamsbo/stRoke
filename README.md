@@ -1,4 +1,7 @@
 <!-- badges: start -->
+![GitHub R package version](https://img.shields.io/github/r-package/v/agdamsbo/stRoke)
+![CRAN/METACRAN](https://img.shields.io/cran/v/stRoke)
+![CRAN/METACRAN](https://img.shields.io/cran/l/stRoke)
 [![Github Actions](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml)
 [![Page deployed](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment)
 [![codecov](https://codecov.io/github/agdamsbo/stRoke/branch/main/graph/badge.svg?token=U0RBZYSKG5)](https://codecov.io/github/agdamsbo/stRoke)

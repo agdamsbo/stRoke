@@ -1,6 +1,6 @@
 Package: stRoke
 Title: Clinical Stroke Research
-Version: 23.1.7
+Version: 23.1.8
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7559-1154"))
@@ -27,9 +27,11 @@ Suggests:
 Language: en-US
 Config/testthat/edition: 3
 Imports: 
+    calendar,
     dplyr,
     ggplot2,
     gtsummary,
+    lubridate,
     MASS,
     rankinPlot,
     stats,
