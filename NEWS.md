@@ -6,9 +6,19 @@
 
 ### Notes:
 
-This is the first update on CRAN.
+* This is the first update on CRAN.
+
+### Documentation
+
+* Badges, lots of badges
+
 
 # stRoke 23.1.7
+
+### Notes:
+
+* This is the version first published on CRAN as of 24.jan.2023.
+* This is also the version first published to zenodo.org, and with corresponding [doi: 10.5281/zenodo.7572023](https://doi.org/10.5281/zenodo.7572023).
 
 ### Functions:
 
