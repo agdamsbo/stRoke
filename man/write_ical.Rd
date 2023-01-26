@@ -58,10 +58,10 @@ Export as .ics file using \code{calendar::ic_write()}.
 \examples{
 df <- data.frame(
   date = c("2020-02-10", "2020-02-11"),
-  end = c("2020-02-13",NA),
+  date.end = c("2020-02-13",NA),
   title = c("Conference", "Lunch"),
   start = c("12:00:00", NA),
-  bye = c("13:00:00", NA),
+  time.end = c("13:00:00", NA),
   note = c("Hi there","Remember to come"),
   link = c("https://icalendar.org","https://agdamsbo.github.io/stRoke/")
 )
@@ -69,10 +69,10 @@ df <- data.frame(
 write_ical(
   df,
   date = "date",
-  date.end = "end",
+  date.end = "date.end",
   title = "title",
   time.start = "start",
-  time.end = "bye",
+  time.end = "time.end",
   place.def = "Conference Room",
   descr = "note",
   link = "link"

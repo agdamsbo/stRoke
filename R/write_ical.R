@@ -25,10 +25,10 @@
 #' @examples
 #' df <- data.frame(
 #'   date = c("2020-02-10", "2020-02-11"),
-#'   end = c("2020-02-13",NA),
+#'   date.end = c("2020-02-13",NA),
 #'   title = c("Conference", "Lunch"),
 #'   start = c("12:00:00", NA),
-#'   bye = c("13:00:00", NA),
+#'   time.end = c("13:00:00", NA),
 #'   note = c("Hi there","Remember to come"),
 #'   link = c("https://icalendar.org","https://agdamsbo.github.io/stRoke/")
 #' )
@@ -36,10 +36,10 @@
 #' write_ical(
 #'   df,
 #'   date = "date",
-#'   date.end = "end",
+#'   date.end = "date.end",
 #'   title = "title",
 #'   time.start = "start",
-#'   time.end = "bye",
+#'   time.end = "time.end",
 #'   place.def = "Conference Room",
 #'   descr = "note",
 #'   link = "link"
@@ -78,6 +78,10 @@ write_ical <-
       stop("Supplied title is not a valid column name")
     }
     
+    if (any(is.na(df[,title]))) {
+      stop("Missing title values are not allowed")
+    }
+    
     if (is.character(place) & !place %in% colnames(df)) {
       stop("Supplied place is not a valid column name")
     }
@@ -109,16 +113,14 @@ write_ical <-
                           lubridate::hms(i[, time.start])
                       }
                       
-                      
                       if (is.character(date.end) &
-                          !is.na(i[, time.end]) &
-                          is.na(i[, date.end])) {
-                        stop("time.end is needed for entries 
-                             with supplied date.end")
+                          is.na(i[, time.end]) &
+                          !is.na(i[, date.end])) {
+                        stop("time.end is missing for some date.end")
                       }
                       else if (is.character(date.end) &
-                               !is.na(i[, time.end]) &
-                               !is.na(i[, date.end])) {
+                          !is.na(i[, time.end]) &
+                          !is.na(i[, date.end])) {
                         i$end_time <-
                           lubridate::ymd(i[, date.end], tz = t.zone) +
                           lubridate::hms(i[, time.end])
