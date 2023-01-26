@@ -63,3 +63,8 @@ test_that("age_calc throws an error when wrong unit", {
 test_that("age_calc throws an error when wrong format", {
   expect_error(age_calc("2020-01-01", as.Date("2000-01-01"), units = "hours"))
 })
+
+test_that("age_calc throws an error when wrong format", {
+  expect_error(age_calc(as.Date("2020-01-01"), as.Date("2000-01-01"), units = "years"))
+  expect_error(age_calc(as.Date("1982-01-01"), as.Date("2000-01-01"), units = "seconds"))
+})
