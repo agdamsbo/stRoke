@@ -1,0 +1,65 @@
+---
+title: "Data set to data dictionary (ds2dd)"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ds2dd}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(stRoke)
+```
+
+# Easy data set to data base workflow
+
+This function can be used as a simple tool for creating at data base metadata file for REDCap (called a DataDictionary) based on a given data set file.
+
+## Step 1 - Load your data set
+
+Here we'll use the sample TALOS dataset included with the package.
+
+```{r}
+data("talos")
+# As the data set lacks an ID column, one is added
+talos$id <- seq_len(nrow(talos))
+```
+
+## Step 2 - Create the DataDictionary
+
+```{r}
+datadictionary <- ds2dd(talos,record.id = "id")
+```
+
+Now additional specifications to the DataDictionary can be made manually, or it can be uploaded and modified manually in the graphical user interface on the web page.
+
+## Step 3 - Upload
+
+Now the DataDictionary can be exported as a spreadsheet and uploaded or it can be uploaded using the `REDCapR` package (only projects with "Development" status).
+
+Use one of the two approaches below:
+
+### Manual upload
+
+```{r eval=FALSE}
+write.csv(datadictionary,"datadictionary.csv")
+```
+
+### Upload with `REDCapR`
+
+```{r eval=FALSE}
+REDCapR::redcap_metadata_write(
+  datadictionary,
+  redcap_uri = keyring::key_get("DB_URI"),
+  token = keyring::key_get("DB_TOKEN")
+)
+```
+
+In the ["REDCap R Handbook"](https://agdamsbo.github.io/redcap-r-handbook/) more is written on interfacing with REDCap in R using the `library(keyring)`to store credentials in [chapter 1.1](https://agdamsbo.github.io/redcap-r-handbook/access.html#sec-getting-access).

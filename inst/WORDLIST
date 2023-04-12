@@ -14,6 +14,7 @@ REDCapRITS
 RStudio
 Randomisation
 STROKEAHA
+StackOverflow
 Sys
 TALOS
 Vectorised
@@ -51,6 +52,7 @@ gpttools
 grotta
 grottaBar
 gtsummary
+https
 ical
 icalendar
 ics
@@ -59,10 +61,14 @@ jan
 jss
 lm
 lst
+luminance
 mRS
 olr
 recognised
+rgb
 sapply
+stackoverflow
+teppo
 vapply
 vec
 winP

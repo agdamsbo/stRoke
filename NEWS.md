@@ -1,8 +1,21 @@
+# stRoke 23.4.1
+
+### Functions:
+
+* NEW: ds2dd() creates a REDCap data dictionary based on a data set for easy upload. A new vignette will be provided for example use. A separate vignette has been added.
+
+### Notes:
+
+* With newer additions to the package, these functions clearly has their potential use also outside stroke research.
+* A new vector with REDCap metadata headers has been added. Can be called with data(metadata_names).
+
+
 # stRoke 23.1.8
 
 ### Functions:
 
 * write_ical() is an easy to use implementation of the package `library(calendar)` for easy conversion of spreadsheets to ical object. Export an .ics file using `calendar::ic_write()`. 
+* contrast_text() calculates the best contrast text color for a given background color. For use in graphics.
 
 ### Notes:
 

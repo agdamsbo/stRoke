@@ -1,8 +1,8 @@
 ---
-title: "Toolbox"
+title: "Toolbox introduction"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Toolbox}
+  %\VignetteIndexEntry{Introduction}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
