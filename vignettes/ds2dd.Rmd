@@ -1,5 +1,6 @@
 ---
-title: "Data set to data dictionary (ds2dd)"
+title: "ds2dd"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{ds2dd}

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">stRoke</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">23.1.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">23.4.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,6 +24,7 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/ds2dd.html">ds2dd</a>
     <a class="dropdown-item" href="../articles/toolbox.html">Toolbox</a>
   </div>
 </li>
@@ -51,10 +52,23 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="23.4.1" id="stroke-2341">stRoke 23.4.1<a class="anchor" aria-label="anchor" href="#stroke-2341"></a></h2>
+<div class="section level4">
+<h4 id="functions-23-4-1">Functions:<a class="anchor" aria-label="anchor" href="#functions-23-4-1"></a></h4>
+<ul><li>NEW: ds2dd() creates a REDCap data dictionary based on a data set for easy upload. A new vignette will be provided for example use. A separate vignette has been added.</li>
+</ul></div>
+<div class="section level4">
+<h4 id="notes-23-4-1">Notes:<a class="anchor" aria-label="anchor" href="#notes-23-4-1"></a></h4>
+<ul><li>With newer additions to the package, these functions clearly has their potential use also outside stroke research.</li>
+<li>A new vector with REDCap metadata headers has been added. Can be called with data(metadata_names).</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="23.1.8" id="stroke-2318">stRoke 23.1.8<a class="anchor" aria-label="anchor" href="#stroke-2318"></a></h2>
 <div class="section level4">
 <h4 id="functions-23-1-8">Functions:<a class="anchor" aria-label="anchor" href="#functions-23-1-8"></a></h4>
 <ul><li>write_ical() is an easy to use implementation of the package <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(calendar)</a></code> for easy conversion of spreadsheets to ical object. Export an .ics file using <code><a href="https://rdrr.io/pkg/calendar/man/ic_write.html" class="external-link">calendar::ic_write()</a></code>.</li>
+<li>contrast_text() calculates the best contrast text color for a given background color. For use in graphics.</li>
 </ul></div>
 <div class="section level4">
 <h4 id="notes-23-1-8">Notes:<a class="anchor" aria-label="anchor" href="#notes-23-1-8"></a></h4>
