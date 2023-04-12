@@ -97,20 +97,24 @@ set file.</p>
 package.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"talos"</span><span class="op">)</span></span>
+<span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="va">talos</span></span>
 <span><span class="co"># As the data set lacks an ID column, one is added</span></span>
-<span><span class="va">talos</span><span class="op">$</span><span class="va">id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">talos</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">ds</span><span class="op">$</span><span class="va">id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">ds</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="step-2---create-the-datadictionary">Step 2 - Create the DataDictionary<a class="anchor" aria-label="anchor" href="#step-2---create-the-datadictionary"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">datadictionary</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ds2dd.html">ds2dd</a></span><span class="op">(</span><span class="va">talos</span>,record.id <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">datadictionary</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ds2dd.html">ds2dd</a></span><span class="op">(</span><span class="va">ds</span>,record.id <span class="op">=</span> <span class="st">"id"</span>,include.column.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>Now additional specifications to the DataDictionary can be made
 manually, or it can be uploaded and modified manually in the graphical
 user interface on the web page.</p>
+<p>The function will transform column names to lower case and substitute
+spaces for underscores. The output is a list with the DataDictionary and
+a vector of new column names for the dataset to fit the meta data.</p>
 </div>
 <div class="section level3">
-<h3 id="step-3---upload">Step 3 - Upload<a class="anchor" aria-label="anchor" href="#step-3---upload"></a>
+<h3 id="step-3---meta-data-upload">Step 3 - Meta data upload<a class="anchor" aria-label="anchor" href="#step-3---meta-data-upload"></a>
 </h3>
 <p>Now the DataDictionary can be exported as a spreadsheet and uploaded
 or it can be uploaded using the <code>REDCapR</code> package (only
@@ -120,14 +124,14 @@ projects with “Development” status).</p>
 <h4 id="manual-upload">Manual upload<a class="anchor" aria-label="anchor" href="#manual-upload"></a>
 </h4>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv</a></span><span class="op">(</span><span class="va">datadictionary</span>,<span class="st">"datadictionary.csv"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv</a></span><span class="op">(</span><span class="va">datadictionary</span><span class="op">$</span><span class="va">DataDictionary</span>,<span class="st">"datadictionary.csv"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="upload-with-redcapr">Upload with <code>REDCapR</code><a class="anchor" aria-label="anchor" href="#upload-with-redcapr"></a>
 </h4>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">REDCapR</span><span class="fu">::</span><span class="fu"><a href="https://ouhscbbmc.github.io/REDCapR/reference/redcap_metadata_write.html" class="external-link">redcap_metadata_write</a></span><span class="op">(</span></span>
-<span>  <span class="va">datadictionary</span>,</span>
+<span>  <span class="va">datadictionary</span><span class="op">$</span><span class="va">DataDictionary</span>,</span>
 <span>  redcap_uri <span class="op">=</span> <span class="fu">keyring</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/keyring/man/key_get.html" class="external-link">key_get</a></span><span class="op">(</span><span class="st">"DB_URI"</span><span class="op">)</span>,</span>
 <span>  token <span class="op">=</span> <span class="fu">keyring</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/keyring/man/key_get.html" class="external-link">key_get</a></span><span class="op">(</span><span class="st">"DB_TOKEN"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -136,6 +140,22 @@ Handbook”</a> more is written on interfacing with REDCap in R using the
 <code><a href="https://r-lib.github.io/keyring/index.html" class="external-link">library(keyring)</a></code>to store credentials in <a href="https://agdamsbo.github.io/redcap-r-handbook/access.html#sec-getting-access" class="external-link">chapter
 1.1</a>.</p>
 </div>
+</div>
+<div class="section level3">
+<h3 id="step-4---data-upload">Step 4 - Data upload<a class="anchor" aria-label="anchor" href="#step-4---data-upload"></a>
+</h3>
+<p>The same two options are available for data upload as meta data
+upload: manual og through <code>REDCapR</code>.</p>
+<p>Only the latter is shown here.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># new column nams are applied</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">ds</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">datadictionary</span><span class="op">$</span><span class="va">`Column names`</span></span>
+<span></span>
+<span><span class="fu">REDCapR</span><span class="fu">::</span><span class="fu"><a href="https://ouhscbbmc.github.io/REDCapR/reference/redcap_write.html" class="external-link">redcap_write</a></span><span class="op">(</span></span>
+<span>  <span class="va">ds</span>,</span>
+<span>  redcap_uri <span class="op">=</span> <span class="fu">keyring</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/keyring/man/key_get.html" class="external-link">key_get</a></span><span class="op">(</span><span class="st">"DB_URI"</span><span class="op">)</span>,</span>
+<span>  token <span class="op">=</span> <span class="fu">keyring</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/keyring/man/key_get.html" class="external-link">key_get</a></span><span class="op">(</span><span class="st">"DB_TOKEN"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
