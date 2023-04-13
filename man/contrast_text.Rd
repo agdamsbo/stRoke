@@ -15,7 +15,8 @@ contrast_text(
 \arguments{
 \item{background}{A hex/named color value that represents the background.}
 
-\item{light_text}{A hex/named color value that represents the light text color.}
+\item{light_text}{A hex/named color value that represents the light text
+color.}
 
 \item{dark_text}{A hex/named color value that represents the dark text color.}
 
@@ -30,14 +31,16 @@ c("relative","perceived","perceived_2")}
 A character string that contains the best contrast text color.
 }
 \description{
-Calculates the best contrast text color for a given background color.
+Calculates the best contrast text color for a given
+background color.
 }
 \details{
 This function aids in deciding the font color to print on a given background.
 The function is based on the example provided by teppo:
 https://stackoverflow.com/a/66669838/21019325.
 The different methods provided are based on the methods outlined in the
-StackOverflow thread: https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color
+StackOverflow thread:
+https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color
 }
 \examples{
 contrast_text(c("#F2F2F2", "blue"))
