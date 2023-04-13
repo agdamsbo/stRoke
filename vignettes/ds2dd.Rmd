@@ -70,12 +70,12 @@ In the ["REDCap R Handbook"](https://agdamsbo.github.io/redcap-r-handbook/) more
 
 ## Step 4 - Data upload
 
-The same two options are available for data upload as meta data upload: manual og through `REDCapR`.
+The same two options are available for data upload as meta data upload: manual or through `REDCapR`.
 
 Only the latter is shown here.
 
 ```{r eval=FALSE}
-# new column nams are applied
+# new column names are applied
 colnames(ds) <- datadictionary$`Column names`
 
 REDCapR::redcap_write(

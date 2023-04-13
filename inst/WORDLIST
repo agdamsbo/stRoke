@@ -1,7 +1,9 @@
 Andreas
 Changelog
+Codecov
 DDMMYY
 DOI
+DataDictionary
 Gammelgaard
 Github
 Kraglund
@@ -10,6 +12,7 @@ NA's
 OLR
 ORCID
 OpenAI's
+REDCap
 REDCapRITS
 RStudio
 Randomisation
@@ -25,6 +28,7 @@ al
 annonymized
 bstfun
 calc
+characterstrings
 chatgpt
 christophergandrud
 ci
@@ -39,6 +43,7 @@ ddmmyyxxxx
 difftime
 dk
 doi
+ds
 eeptools
 eg
 et
@@ -63,6 +68,7 @@ lm
 lst
 luminance
 mRS
+og
 olr
 recognised
 rgb

@@ -4,7 +4,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7572023.svg)](https://doi.org/10.5281/zenodo.7572023)
 [![Github Actions](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml)
 [![Page deployed](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment)
-[![codecov](https://codecov.io/github/agdamsbo/stRoke/branch/main/graph/badge.svg?token=U0RBZYSKG5)](https://codecov.io/github/agdamsbo/stRoke)
+[![Codecov test coverage](https://codecov.io/gh/agdamsbo/stRoke/branch/main/graph/badge.svg)](https://app.codecov.io/gh/agdamsbo/stRoke?branch=main)
 [![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/stRoke)](https://cran.r-project.org/package=stRoke)
 <!-- badges: end -->
 

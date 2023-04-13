@@ -145,10 +145,10 @@ Handbook”</a> more is written on interfacing with REDCap in R using the
 <h3 id="step-4---data-upload">Step 4 - Data upload<a class="anchor" aria-label="anchor" href="#step-4---data-upload"></a>
 </h3>
 <p>The same two options are available for data upload as meta data
-upload: manual og through <code>REDCapR</code>.</p>
+upload: manual or through <code>REDCapR</code>.</p>
 <p>Only the latter is shown here.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># new column nams are applied</span></span>
+<code class="sourceCode R"><span><span class="co"># new column names are applied</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">ds</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">datadictionary</span><span class="op">$</span><span class="va">`Column names`</span></span>
 <span></span>
 <span><span class="fu">REDCapR</span><span class="fu">::</span><span class="fu"><a href="https://ouhscbbmc.github.io/REDCapR/reference/redcap_write.html" class="external-link">redcap_write</a></span><span class="op">(</span></span>
