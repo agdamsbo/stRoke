@@ -8,7 +8,7 @@
 [![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/stRoke)](https://cran.r-project.org/package=stRoke)
 <!-- badges: end -->
 
-# stRoke package <img src="man/figures/hexlogo.png" align="right" />
+# stRoke package <img src="man/figures/logo.png" align="right" />
 
 This is an R-toolbox of custom functions for convenient data management and analysis in clinical health research and teaching.
 The package is mainly collected for personal use, but any use beyond that is encouraged.
