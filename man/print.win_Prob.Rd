@@ -2,7 +2,7 @@
 % Please edit documentation in R/win_prob.R
 \name{print.win_Prob}
 \alias{print.win_Prob}
-\title{PRints win_prob results}
+\title{Prints win_prob results}
 \usage{
 \method{print}{win_Prob}(x, ...)
 }
@@ -15,5 +15,5 @@
 Prints win_prob statistics.
 }
 \description{
-PRints win_prob results
+Prints win_prob results
 }

@@ -1,3 +1,9 @@
+# stRoke 23.6.1
+
+### Functions:
+
+* NEW: 'color_plot()' function implements the 'contrast_text()' and is very much inspired from  'scales::show_col()'. Passes arguments to the internal 'contrast_text()'. Tests and all. Took way longer than intended.
+
 # stRoke 23.4.1
 
 ### Functions:

@@ -61,3 +61,5 @@ data/*.R
 inst/doc
 
 drafts/
+
+.DS_Store
