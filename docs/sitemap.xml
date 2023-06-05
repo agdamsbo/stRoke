@@ -37,6 +37,9 @@
     <loc>/reference/ci_plot.html</loc>
   </url>
   <url>
+    <loc>/reference/color_plot.html</loc>
+  </url>
+  <url>
     <loc>/reference/contrast_text.html</loc>
   </url>
   <url>
@@ -80,6 +83,9 @@
   </url>
   <url>
     <loc>/reference/plot_ord_odds.html</loc>
+  </url>
+  <url>
+    <loc>/reference/print.win_Prob.html</loc>
   </url>
   <url>
     <loc>/reference/quantile_cut.html</loc>
