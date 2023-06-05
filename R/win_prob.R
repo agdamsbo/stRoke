@@ -171,7 +171,7 @@ win_prob <-
     return(out)
   }
 
-#' @title PRints win_prob results
+#' @title Prints win_prob results
 #' @param x win_prob results.
 #' @param ... ignored for now
 #' @return Prints win_prob statistics. 
