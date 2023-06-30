@@ -43,3 +43,9 @@ This is a new package version
 
 0 errors ✔ | 0 warnings ✔ | 3 notes ✖
 
+── R CMD check results ───────────────────────────────────────────────────────── stRoke 23.6.2 ────
+Duration: 26.5s
+
+0 errors ✔ | 0 warnings ✔ | 0 notes ✔
+
+R CMD check succeeded
