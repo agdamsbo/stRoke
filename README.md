@@ -1,7 +1,7 @@
 <!-- badges: start -->
 [![GitHub R package version](https://img.shields.io/github/r-package/v/agdamsbo/stRoke)](https://github.com/agdamsbo/stRoke)
 [![CRAN/METACRAN](https://img.shields.io/cran/v/stRoke)](https://CRAN.R-project.org/package=stRoke)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8013981.svg)](https://doi.org/10.5281/zenodo.8013981)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8013980.svg)](https://doi.org/10.5281/zenodo.8013980)
 [![Github Actions](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/R-CMD-check.yaml)
 [![Page deployed](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/agdamsbo/stRoke/actions/workflows/pages/pages-build-deployment)
 [![Codecov test coverage](https://codecov.io/gh/agdamsbo/stRoke/branch/main/graph/badge.svg)](https://app.codecov.io/gh/agdamsbo/stRoke?branch=main)
