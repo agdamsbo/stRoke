@@ -1,3 +1,9 @@
+# stRoke 23.6.3
+
+### Bug
+
+* Fixed `ds2dd()` bug after first practical implementation.
+
 # stRoke 23.6.2
 
 ### Functions:
