@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">stRoke</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">23.6.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">23.6.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,8 @@
 <span>  form.name <span class="op">=</span> <span class="st">"basis"</span>,</span>
 <span>  field.type <span class="op">=</span> <span class="st">"text"</span>,</span>
 <span>  field.label <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  include.column.names <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  include.column.names <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  metadata <span class="op">=</span> <span class="fu">stRoke</span><span class="fu">::</span><span class="va"><a href="metadata_names.html">metadata_names</a></span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -98,6 +99,11 @@ names.</p></dd>
 <dt>include.column.names</dt>
 <dd><p>Flag to give detailed output including new
 column names for original data set for upload.</p></dd>
+
+
+<dt>metadata</dt>
+<dd><p>Metadata dataframe. Default is the included
+stRoke::metadata_names.</p></dd>
 
 </dl></div>
     <div class="section level2">
