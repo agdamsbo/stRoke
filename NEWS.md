@@ -1,3 +1,15 @@
+# stRoke 23.9.1
+
+### Functions:
+
+* NEW: `chunks_of_n()` uses `split()` to separate supplied vector or data frame into chunks of n. Flags to set if all but the last chunks should be exactly size n, or if they should be evenly sized of max n. Labels can be provided including regex pattern for subject naming to include in chunk names.
+
+* NEW: `n_chunks()` is the opposite of `chunks_of_n()` and is simply a wrapper for this function to create list of n chunks based of provided vector or data frame.
+
+* NEW: `str_extract()` will extract the substring of a character string given by a regex pattern. Came to be as a helper function for labelling chunks in `chunks_of_n()`, but will be useful on its own. Other functions doing the same exists, but this is my take only using base _R_. Draws on `REDCapCAST::strsplitx()`, where splits can be performed around a pattern.
+
+* Deprecation: `ds2dd()` moved to `REDCapCAST::ds2dd()` as this is where it belongs.
+
 # stRoke 23.6.3
 
 ### Bug
