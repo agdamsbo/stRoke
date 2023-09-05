@@ -8,6 +8,8 @@
 
 * NEW: `str_extract()` will extract the substring of a character string given by a regex pattern. Came to be as a helper function for labelling chunks in `chunks_of_n()`, but will be useful on its own. Other functions doing the same exists, but this is my take only using base _R_. Draws on `REDCapCAST::strsplitx()`, where splits can be performed around a pattern.
 
+* NEW: `add_padding()` was created out of frustration. I wanted to add padding using `sprintf("%0s",string)`, in examples for the above, but it would fail when rendering on Windows. Say hello to another function. Just very small. Defaults to adding leading zeros, to get all string to equal length with the longer string supplied.
+
 * Deprecation: `ds2dd()` moved to `REDCapCAST::ds2dd()` as this is where it belongs.
 
 # stRoke 23.6.3
