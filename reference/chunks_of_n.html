@@ -114,51 +114,51 @@ frame, will assume first column is name.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]  95  96  97  98  99 100</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>nm<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Sub"</span>,</span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"%03s"</span>, <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="fu">stRoke</span><span class="fu">::</span><span class="va"><a href="talos.html">talos</a></span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,<span class="fu">stRoke</span><span class="fu">::</span><span class="va"><a href="talos.html">talos</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="add_padding.html">add_padding</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="fu">stRoke</span><span class="fu">::</span><span class="va"><a href="talos.html">talos</a></span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,<span class="fu">stRoke</span><span class="fu">::</span><span class="va"><a href="talos.html">talos</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">chunks_of_n</span><span class="op">(</span><span class="va">ds</span>,<span class="fl">7</span>,pattern<span class="op">=</span><span class="st">"Sub[0-9]{3}"</span>,label<span class="op">=</span><span class="st">"grp"</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`grp-NA-NA`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $`grp-Sub038-Sub011`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         nm  rtreat mrs_1 mrs_6 hypertension diabetes   civil</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  Sub 38  Active     1     1           no       no partner</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38  Sub038  Active     1     1           no       no partner</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 434 Sub434  Active     1     1          yes       no partner</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 588 Sub588  Active     2     2          yes       no partner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  Sub 42  Active     0     0          yes       no partner</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42  Sub042  Active     0     0          yes       no partner</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 160 Sub160 Placebo     1     1          yes       no partner</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 174 Sub174  Active     0     1          yes       no   alone</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  Sub 11 Placebo     2     1          yes      yes   alone</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  Sub011 Placebo     2     1          yes      yes   alone</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`grp-Sub601-NA`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $`grp-Sub601-Sub062`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         nm  rtreat mrs_1 mrs_6 hypertension diabetes   civil</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 601 Sub601 Placebo     1     1           no       no partner</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 412 Sub412  Active     0     0          yes       no partner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88  Sub 88 Placebo     1     1          yes      yes partner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56  Sub 56 Placebo     0     0           no       no   alone</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88  Sub088 Placebo     1     1          yes      yes partner</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56  Sub056 Placebo     0     0           no       no   alone</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 235 Sub235 Placebo     2     1          yes      yes   alone</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 205 Sub205  Active     3     3           no       no partner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62  Sub 62  Active     2     2          yes       no   alone</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62  Sub062  Active     2     2          yes       no   alone</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co">## Please notice that no sorting is performed. This is on purpose to preserve</span></span></span>
 <span class="r-in"><span><span class="co">## original sorting. If sorting is intended, try something like this:</span></span></span>
 <span class="r-in"><span><span class="va">ds</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">ds</span><span class="op">$</span><span class="va">nm</span><span class="op">)</span>,<span class="op">]</span> <span class="op">|&gt;</span> <span class="fu">chunks_of_n</span><span class="op">(</span><span class="fl">7</span>,pattern<span class="op">=</span><span class="st">"Sub[0-9]{3}"</span>,label<span class="op">=</span><span class="st">"grp"</span><span class="op">)</span> <span class="op">|&gt;</span> </span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`grp-NA-NA`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $`grp-Sub001-Sub020`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        nm  rtreat mrs_1 mrs_6 hypertension diabetes   civil</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Sub  1 Placebo     0     0          yes       no partner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Sub  2 Placebo     2     1           no       no partner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  Sub  7 Placebo     1     1          yes       no partner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  Sub  9 Placebo     1     1           no       no partner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Sub 11 Placebo     2     1          yes      yes   alone</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 Sub 13  Active     1     1          yes       no partner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 Sub 20 Placebo     1     2           no       no   alone</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Sub001 Placebo     0     0          yes       no partner</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Sub002 Placebo     2     1           no       no partner</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  Sub007 Placebo     1     1          yes       no partner</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  Sub009 Placebo     1     1           no       no partner</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 Sub011 Placebo     2     1          yes      yes   alone</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 Sub013  Active     1     1          yes       no partner</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 Sub020 Placebo     1     2           no       no   alone</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`grp-NA-NA`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $`grp-Sub022-Sub038`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        nm  rtreat mrs_1 mrs_6 hypertension diabetes   civil</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 Sub 22 Placebo     2     1           no       no partner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 Sub 26 Placebo     2     4           no       no   alone</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 Sub 28  Active     2     2          yes       no partner</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 Sub 29 Placebo     2     2           no       no   alone</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 Sub 33 Placebo     0     0          yes       no   alone</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 Sub 34  Active     1     1           no       no   alone</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 Sub 38  Active     1     1           no       no partner</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 Sub022 Placebo     2     1           no       no partner</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 Sub026 Placebo     2     4           no       no   alone</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 Sub028  Active     2     2          yes       no partner</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29 Sub029 Placebo     2     2           no       no   alone</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33 Sub033 Placebo     0     0          yes       no   alone</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34 Sub034  Active     1     1           no       no   alone</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38 Sub038  Active     1     1           no       no partner</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
