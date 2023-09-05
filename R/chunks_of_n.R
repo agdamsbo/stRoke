@@ -14,7 +14,7 @@
 #' tail(chunks_of_n(seq_len(100),7),3)
 #' tail(chunks_of_n(seq_len(100),7,even=TRUE),3)
 #' ds <- data.frame(nm=paste0("Sub",
-#' sprintf("%03s", rownames(stRoke::talos))),stRoke::talos)
+#' add_padding(rownames(stRoke::talos))),stRoke::talos)
 #' head(chunks_of_n(ds,7,pattern="Sub[0-9]{3}",label="grp"),2)
 #' ## Please notice that no sorting is performed. This is on purpose to preserve
 #' ## original sorting. If sorting is intended, try something like this:
