@@ -1,6 +1,6 @@
 Package: stRoke
 Title: Clinical Stroke Research
-Version: 23.9.1
+Version: 24.2.1
 Authors@R: 
     person("Andreas Gammelgaard", "Damsbo", , "agdamsbo@clin.au.dk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7559-1154"))
@@ -17,7 +17,7 @@ BugReports: https://github.com/agdamsbo/stRoke/issues
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 LazyData: true
 Suggests:
     covr,
@@ -25,13 +25,17 @@ Suggests:
     knitr,
     rmarkdown,
     spelling,
-    testthat (>= 3.0.0)
+    usethis,
+    testthat,
+    git2r,
+    pak
 Language: en-US
 Config/testthat/edition: 3
 Imports: 
     calendar,
     dplyr,
     ggplot2,
+    glue,
     grDevices,
     gtsummary,
     lubridate,
@@ -39,7 +43,9 @@ Imports:
     rankinPlot,
     stats,
     tidyr,
-    utils
+    utils,
+    tibble,
+    tidyselect
 Depends: 
     R (>= 2.10)
 VignetteBuilder: knitr
