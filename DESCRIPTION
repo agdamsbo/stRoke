@@ -28,8 +28,9 @@ Suggests:
     usethis,
     testthat,
     git2r,
-    pak
-Language: en-US
+    pak,
+    here,
+    rhub
 Config/testthat/edition: 3
 Imports: 
     calendar,
@@ -49,3 +50,4 @@ Imports:
 Depends: 
     R (>= 2.10)
 VignetteBuilder: knitr
+Language: en-US
