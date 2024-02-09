@@ -4,9 +4,6 @@
     <loc>https://agdamsbo.github.io/stRoke/404.html</loc>
   </url>
   <url>
-    <loc>https://agdamsbo.github.io/stRoke/articles/ds2dd.html</loc>
-  </url>
-  <url>
     <loc>https://agdamsbo.github.io/stRoke/articles/index.html</loc>
   </url>
   <url>
@@ -55,6 +52,9 @@
     <loc>https://agdamsbo.github.io/stRoke/reference/ds2dd.html</loc>
   </url>
   <url>
+    <loc>https://agdamsbo.github.io/stRoke/reference/ds2ical.html</loc>
+  </url>
+  <url>
     <loc>https://agdamsbo.github.io/stRoke/reference/files_filter.html</loc>
   </url>
   <url>
@@ -71,6 +71,12 @@
   </url>
   <url>
     <loc>https://agdamsbo.github.io/stRoke/reference/metadata_names.html</loc>
+  </url>
+  <url>
+    <loc>https://agdamsbo.github.io/stRoke/reference/mfi_domains.html</loc>
+  </url>
+  <url>
+    <loc>https://agdamsbo.github.io/stRoke/reference/multi_rev.html</loc>
   </url>
   <url>
     <loc>https://agdamsbo.github.io/stRoke/reference/n_chunks.html</loc>
