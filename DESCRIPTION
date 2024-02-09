@@ -24,7 +24,8 @@ Suggests:
     rmarkdown,
     testthat,
     git2r,
-    here
+    here,
+    spelling
 Config/testthat/edition: 3
 Imports: 
     calendar,
