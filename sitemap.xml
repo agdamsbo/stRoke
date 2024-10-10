@@ -1,117 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/404.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/articles/toolbox.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/index.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/add_padding.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/age_calc.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/chunks_of_n.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/ci_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/color_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/contrast_text.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/cpr_check.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/cpr_dob.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/cpr_female.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/cprs.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/ds2dd.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/ds2ical.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/files_filter.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/generic_stroke.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/index_plot.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/label_select.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/metadata_names.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/mfi_domains.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/multi_rev.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/n_chunks.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/pase.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/pase_calc.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/print.win_Prob.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/quantile_cut.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/score.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/source_lines.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/stRoke-package.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/str_extract.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/talos.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/win_prob.html</loc>
-  </url>
-  <url>
-    <loc>https://agdamsbo.github.io/stRoke/reference/write_ical.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://agdamsbo.github.io/stRoke/404.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/articles/index.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/articles/toolbox.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/authors.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/index.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/news/index.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/add_padding.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/age_calc.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/chunks_of_n.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/ci_plot.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/color_plot.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/contrast_text.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/cpr_check.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/cpr_dob.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/cpr_female.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/cprs.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/ds2dd.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/ds2ical.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/files_filter.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/generic_stroke.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/index.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/index_plot.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/label_select.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/metadata_names.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/mfi_domains.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/multi_rev.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/n_chunks.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/pase.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/pase_calc.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/print.win_Prob.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/quantile_cut.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/score.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/source_lines.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/stRoke-package.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/str_extract.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/talos.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/win_prob.html</loc></url>
+<url><loc>https://agdamsbo.github.io/stRoke/reference/write_ical.html</loc></url>
 </urlset>
+
