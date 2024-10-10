@@ -1,3 +1,4 @@
+utils::globalVariables(c("DTSTART"))
 #' Convert data set to ical file
 #'
 #' @param data data set

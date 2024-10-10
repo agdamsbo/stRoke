@@ -2,7 +2,7 @@
 % Please edit documentation in R/mfi_calc.R
 \name{multi_rev}
 \alias{multi_rev}
-\title{Title}
+\title{Reverses relevant MFI subscores}
 \usage{
 multi_rev(d, var)
 }
@@ -15,7 +15,7 @@ multi_rev(d, var)
 data.frame or tibble depending on input
 }
 \description{
-Title
+Reverses relevant MFI subscores
 }
 \examples{
 # rep_len(sample(1:5),length.out = 100) |> matrix(ncol=10) |> multi_rev(2:4)

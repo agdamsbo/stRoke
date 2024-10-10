@@ -1,4 +1,4 @@
-# stRoke 24.2.1
+# stRoke 24.10.1
 
 ### Functions:
 
@@ -8,7 +8,11 @@
 
 * UPDATE: `add_padding()` updated to include option to add leading and/or tailing string with `lead` or `tail`.
 
+* Moving: The following functions are moved to `agdamsbo/project.aid` to focus on (stroke) trial related functions: `str_extract()`.
+
 * NEW: `mfi_calc()` calculates domain scores from the MFI questionnaire. Takes data frame of 20 ordered as the questionnaire. Default is to reverse questions with reverse scoring.
+
+Checks set up with `rhub` v2
 
 # stRoke 23.9.1
 

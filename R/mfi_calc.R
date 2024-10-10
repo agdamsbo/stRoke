@@ -1,4 +1,5 @@
-#' Title
+utils::globalVariables(c("ndx"))
+#' Reverses relevant MFI subscores
 #'
 #' @param d data frame or tibble
 #' @param var numeric vector of indices of columns to reverse
