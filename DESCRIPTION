@@ -23,7 +23,6 @@ Suggests:
     knitr,
     rmarkdown,
     testthat,
-    git2r,
     here,
     spelling,
     usethis,
