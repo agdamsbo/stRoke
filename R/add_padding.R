@@ -1,4 +1,4 @@
-#' Add padding to string
+#' MOVED Add padding to string
 #'
 #' @param d vector of strings or numbers
 #' @param length final string length

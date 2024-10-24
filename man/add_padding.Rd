@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_padding.R
 \name{add_padding}
 \alias{add_padding}
-\title{Add padding to string}
+\title{MOVED Add padding to string}
 \usage{
 add_padding(
   d,
@@ -30,7 +30,7 @@ add_padding(
 vector or character strings of same length.
 }
 \description{
-Add padding to string
+MOVED Add padding to string
 }
 \examples{
 add_padding(sample(1:200,5),tail="AA",lead=c(2,3,"e"))

@@ -2,13 +2,9 @@
 
 ### Functions:
 
-* NEW: `ds2ical()` converts data set to ical format with easy glue string for summary and description. Export .ics file with `calendar::ic_write()`.
+* UPDATE: `pase_calc()` updated for uniform column naming in output as well as streamlining the function a bit.
 
-* UPDATE: `pase_calc()` updated for uniform column naming in output as well as streamlining the function a bit. 
-
-* UPDATE: `add_padding()` updated to include option to add leading and/or tailing string with `lead` or `tail`.
-
-* Moving: The following functions are moved to `agdamsbo/project.aid` to focus on (stroke) trial related functions: `str_extract()`.
+* Moving: The following functions are moved to `agdamsbo/project.aid` to focus on (stroke) trial related functions: `str_extract()`, `add_padding()`, `age_calc()`, `chunks_of_n()`, `contrast_text()`, `files_filter()`, `quantile_cut()`, `write_ical()`.
 
 * NEW: `mfi_calc()` calculates domain scores from the MFI questionnaire. Takes data frame of 20 ordered as the questionnaire. Default is to reverse questions with reverse scoring.
 
