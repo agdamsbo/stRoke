@@ -42,13 +42,12 @@ colouring
 cpr
 cprs
 daDoctoR
-datetime
 ddmmyy
 ddmmyyxxxx
+dev
 difftime
 dk
 doi
-dplyr
 ds
 eeptools
 eg
@@ -82,6 +81,7 @@ rgb
 sapply
 stackoverflow
 strsplit
+subscores
 teppo
 tibble
 vapply
