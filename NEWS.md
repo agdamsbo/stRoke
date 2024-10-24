@@ -1,5 +1,8 @@
 # stRoke 24.10.1
 
+This version marks a significant change in the contents and focus of this package. Going forward I will include functions with a focus on handling clinical trial data from my own stroke research.
+Other functions for general data management an project management has been migrated to the [`project.aid`](https://agdamsbo.github.io/project.aid/) package, which is moving towards CRAN submission. Install dev-version with `pak::pak("agdamsbo/project.aid")`.
+
 ### Functions:
 
 * UPDATE: `pase_calc()` updated for uniform column naming in output as well as streamlining the function a bit.
