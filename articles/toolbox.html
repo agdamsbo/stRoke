@@ -63,7 +63,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Toolbox</h1>
             
-            <h4 data-toc-skip class="date">2024-10-24</h4>
+            <h4 data-toc-skip class="date">2024-10-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/agdamsbo/stRoke/blob/main/vignettes/toolbox.Rmd" class="external-link"><code>vignettes/toolbox.Rmd</code></a></small>
       <div class="d-none name"><code>toolbox.Rmd</code></div>
@@ -83,10 +83,6 @@ something like that.</p>
 I use regularly in addition to functions that I have written myself to
 fill use cases, that I have not been able to find solutions to
 elsewhere.</p>
-<p>In documenting and testing the package, I have used <a href="https://platform.openai.com/overview" class="external-link">OpenAI’s</a> chatgpt with <a href="https://jameshwade.github.io/gpttools/" class="external-link">gpttools</a>. The chatgpt
-is an interesting tool, that is in no way perfect, but it helps with
-tedious tasks. Both <code>gpttools</code> and <a href="https://michelnivard.github.io/gptstudio/" class="external-link"><code>gptstudio</code></a>
-are interesting implementations in R and RStudio.</p>
 <div class="section level3">
 <h3 id="cpr-intro">CPR manipulations<a class="anchor" aria-label="anchor" href="#cpr-intro"></a>
 </h3>
@@ -98,7 +94,7 @@ binary gender (not biological sex) dependent on even/uneven as
 female/male, and the last for digits are used in a modulus calculation
 to verify the validity of the CPR number. Foreigners and unidentified
 persons are given temporary CPR numbers including letters.</p>
-<p>More information can be found on <a href="https://cpr.dk" class="external-link">cpr.dk</a>.</p>
+<p>More information can be found on <a href="https://www.cpr.dk" class="external-link">cpr.dk</a>.</p>
 <p>Note, that all CPR numbers used in examples are publicly known or
 non-organic.</p>
 <div class="section level4">
@@ -115,9 +111,9 @@ functions similarly to <code><a href="https://lubridate.tidyverse.org/reference/
 <div class="section level4">
 <h4 id="cpr_check">cpr_check()<a class="anchor" aria-label="anchor" href="#cpr_check"></a>
 </h4>
-<p>Checks validity of CPR numbers according to the <a href="https://cpr.dk/cpr-systemet/opbygning-af-cpr-nummeret" class="external-link">modulus 11
-rule</a>. Note that due to limitations in the possible available CPR
-numbers, this rule <a href="https://cpr.dk/cpr-systemet/personnumre-uden-kontrolciffer-modulus-11-kontrol" class="external-link">does
+<p>Checks validity of CPR numbers according to the <a href="https://www.cpr.dk/cpr-systemet/opbygning-af-cpr-nummeret" class="external-link">modulus
+11 rule</a>. Note that due to limitations in the possible available CPR
+numbers, this rule <a href="https://www.cpr.dk/cpr-systemet/personnumre-uden-kontrolciffer-modulus-11-kontrol" class="external-link">does
 not apply to all CPR numbers after 2007</a>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/cpr_check.html">cpr_check</a></span><span class="op">(</span></span>
@@ -193,7 +189,7 @@ relevant assumptions.</p>
 <div class="section level4">
 <h4 id="generic_stroke">generic_stroke()<a class="anchor" aria-label="anchor" href="#generic_stroke"></a>
 </h4>
-<p>For learning purposes. Uses annonymized data from the <a href="https://doi.org/10.1161/STROKEAHA.117.020067" class="external-link">TALOS trial</a> to
+<p>For learning purposes. Uses anonymized data from the <a href="https://doi.org/10.1161/STROKEAHA.117.020067" class="external-link">TALOS trial</a> to
 output a Table 1 (with <code><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html" class="external-link">gtsummary::tbl_summary()</a></code>), plotting
 the so-called grotta-bars based on mRS scores (with
 <code><a href="https://rdrr.io/pkg/rankinPlot/man/grottaBar.html" class="external-link">rankinPlot::grottaBar()</a></code>) and a ordinal logistic regression
