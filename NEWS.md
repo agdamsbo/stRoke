@@ -1,3 +1,7 @@
+# stRoke 25.8.1
+
+This is just a very minor update to accomodate the upcoming changes to ggplot2.
+
 # stRoke 24.10.1
 
 This version marks a significant change in the contents and focus of this package. Going forward I will include functions with a focus on handling clinical trial data from my own stroke research.
