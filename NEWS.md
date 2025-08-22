@@ -1,6 +1,6 @@
 # stRoke 25.8.1
 
-This is just a very minor update to acomodate the upcoming changes to ggplot2.
+This is just a very minor update to accommodate the upcoming changes to ggplot2.
 
 # stRoke 24.10.1
 
