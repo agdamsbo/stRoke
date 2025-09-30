@@ -54,6 +54,7 @@ logo.R
 ver_upd.R
 
 data/*.R
+data-raw/trial.R
 
 .Renviron
 .Rbuildignore

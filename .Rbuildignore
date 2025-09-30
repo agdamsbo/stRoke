@@ -18,3 +18,4 @@
 ^CRAN-SUBMISSION$
 ^drafts$
 ^codecov\.yml$
+^data-raw/trial.R$
